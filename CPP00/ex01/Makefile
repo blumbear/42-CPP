@@ -1,5 +1,7 @@
 
-SRCS = phonebook
+SRCS = PhoneBook Contact main
+
+INCLUDE = PhoneBook Contact 
 
 SRC = $(addsuffix .cpp, $(SRCS))
 OBJ = $(addsuffix .o, $(SRCS))
@@ -7,7 +9,7 @@ OBJ = $(addsuffix .o, $(SRCS))
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = phonebook
+NAME = PhoneBook
 
 all : $(NAME)
 
