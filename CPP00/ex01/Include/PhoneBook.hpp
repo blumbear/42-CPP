@@ -19,13 +19,13 @@ class PhoneBook
 /* ==================== Setters ==================== */
 
 		void	Set_PhoneBook(void);
-		void	Set_NextToReplace(void);
+		void	Set_NextToReplace(int i);
 		void	Set_NewContact(Contact contact);
 
 /* ==================== Getters ==================== */
 
 		Contact Get_Contact(int index);
-		Contact Get_NextToReplace(void);
+		int		Get_NextToReplace(void);
 
 /* ===================== Else ===================== */
 

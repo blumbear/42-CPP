@@ -1,26 +1,29 @@
 
-SRCS = PhoneBook Contact main
+FILES = main Contact PhoneBook print
 
-INCLUDE = PhoneBook Contact 
-
-SRC = $(addsuffix .cpp, $(SRCS))
-OBJ = $(addsuffix .o, $(SRCS))
+SRC_DIR = src/
+OBJ_DIR = obj/
+SRCS =  $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
+OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -IInclude
 
 NAME = PhoneBook
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+$(NAME) : $(OBJ_DIR) $(OBJS)
+	$(CC) -o $@ $(OBJS) $(CFLAGS)
 
-%.o : %.cpp
-	$(CC) -c -o $@ $^ $(CFLAGS)
+obj/%.o: src/%.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR):
+	mkdir $@
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean : clean
 	rm -rf $(NAME)
