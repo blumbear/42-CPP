@@ -6,9 +6,9 @@ int main(void)
 	Zombie* zombieq;
 	Zombie* zombies;
 
-	zombie = newZombie("oui");
-	zombieq = newZombie("nn");
-	zombies = newZombie("kk");
+	zombie = newZombie("yes");
+	zombieq = newZombie("no");
+	zombies = newZombie("why");
 	zombie->announce();
 	zombieq->announce();
 	zombies->announce();
