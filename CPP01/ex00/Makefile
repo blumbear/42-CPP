@@ -1,22 +1,21 @@
 
-FILES = Contact PhoneBook print main
+FILES = main newZombie randomChump Zombie
 
-SRC_DIR = src/
 OBJ_DIR = obj/
-SRCS =  $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
+SRCS =  $(addsuffix .cpp, $(FILES))
 OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -IInclude
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = PhoneBook
+NAME = BraiiiiiiinnnzzzZ
 
 all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJS)
 	$(CC)  $(CFLAGS) -o $(NAME) $(OBJS)
 
-obj/%.o: src/%.cpp
+obj/%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
