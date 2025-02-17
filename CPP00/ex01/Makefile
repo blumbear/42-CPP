@@ -6,7 +6,7 @@ OBJ_DIR = obj/
 SRCS =  $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
 OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -IInclude
 
 NAME = PhoneBook
