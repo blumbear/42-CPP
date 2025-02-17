@@ -1,12 +1,12 @@
 
-FILES = main Contact PhoneBook print
+FILES = Contact PhoneBook print main
 
 SRC_DIR = src/
 OBJ_DIR = obj/
 SRCS =  $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
 OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
-CC = c++
+CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -IInclude
 
 NAME = PhoneBook
@@ -14,10 +14,10 @@ NAME = PhoneBook
 all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJS)
-	$(CC) -o $@ $(OBJS) $(CFLAGS)
+	$(CC)  $(CFLAGS) -o $(NAME) $(OBJS)
 
 obj/%.o: src/%.cpp
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir $@

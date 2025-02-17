@@ -9,5 +9,6 @@ void	print_column(std::string to_print, bool print_pipe, bool endl);
 void	print_contact_list(PhoneBook phonebook);
 void	print_contact(Contact contact);	
 void	Display_home(void);
+int		main(void);
 
 /* ================ Print Function ================ */
