@@ -1,13 +1,12 @@
 #include "Harl.h"
 #include "Harl.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2)
-	{
-		std::cout << USAGE_ERROR << '\n';
-		return 0;
-	}
 	Harl harl = Harl();
-	harl.complain(av[1]);
+	harl.complain("INFO");
+	harl.complain("DEBUG");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("TEST");
 }
