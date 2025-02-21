@@ -8,8 +8,8 @@ class Fixed
 {
 	private:
 
-		int rawBits;
-		static const int numberOfBit = 8;
+		int fixedPoint;
+		static const int rawBits = 8;
 		std::string binary;
 
 	public:
@@ -18,15 +18,13 @@ class Fixed
 
 		Fixed();
 		Fixed(const Fixed& other);
-		Fixed(const int number, bool test);
+		Fixed(const float number);
 		Fixed(const int number);
-		Fixed(float number);
 		~Fixed();
 
 /* ================== Operator Overloading ================== */
 
-	Fixed& operator=(const Fixed number);
-	// Fixed& operator<<(const Fixed number);
+	Fixed &operator=(const Fixed &number);
 
 /* ========================= Setter ========================= */
 

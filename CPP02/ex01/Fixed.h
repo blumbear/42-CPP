@@ -11,6 +11,4 @@
 #define GETBIN_ANC "getBinary member function called"
 #define DESTRUCTOR_ANC "Destructor called"
 
-int			ft_pow(int n, int pow);
-std::string	intToBin(int number);
-int			binaryToInt(std::string binary);
+std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
