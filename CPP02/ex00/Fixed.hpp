@@ -7,8 +7,8 @@ class Fixed
 {
 	private:
 
-		int rawBits;
-		static const int numberOfBit = 8;
+		int fixedPoint;
+		static const int rawBits = 8;
 
 	public:
 
@@ -20,7 +20,7 @@ class Fixed
 
 /* ================== Operator Overloading ================== */
 
-	Fixed& operator=(const Fixed number);
+	Fixed& operator=(const Fixed &number);
 
 /* ========================= Setter ========================= */
 

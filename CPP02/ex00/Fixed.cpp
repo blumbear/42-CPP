@@ -2,7 +2,7 @@
 
 /* ================= Constructor & Destructor ================= */
 
-Fixed::Fixed( void ) : rawBits(0)
+Fixed::Fixed( void ) : fixedPoint(0)
 {
 	std::cout << DFLT_CONSTRUCTOR_ANC << '\n';
 }
@@ -10,7 +10,7 @@ Fixed::Fixed( void ) : rawBits(0)
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << CPY_CONSTRUCTOR_ANC << '\n';
-	this->rawBits = other.getRawBits();
+	*this = other;
 }
 
 Fixed::~Fixed( void )
@@ -20,10 +20,10 @@ Fixed::~Fixed( void )
 
 /* ================== Operator Overloading ================== */
 
-Fixed& Fixed::operator=(const Fixed number)
+Fixed& Fixed::operator=(const Fixed &number)
 {
 	std::cout << CPY_ASSIGNMENT_OP_ANC << '\n';
-	this->rawBits = number.getRawBits();
+	this->fixedPoint = number.getRawBits();
 	return (*this);
 }
 
@@ -32,12 +32,12 @@ Fixed& Fixed::operator=(const Fixed number)
 int Fixed::getRawBits( void ) const
 {
 	std::cout << GETRAWBITS_ANC << '\n';
-	return this->rawBits;
+	return this->fixedPoint;
 }
 
 /* ========================= Getter ========================= */
 
 void Fixed::setRawBits( int const raw )
 {
-	this->rawBits = raw;
+	this->fixedPoint = raw;
 }
