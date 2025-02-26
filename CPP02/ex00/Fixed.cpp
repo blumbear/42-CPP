@@ -4,25 +4,25 @@
 
 Fixed::Fixed( void ) : fixedPoint(0)
 {
-	std::cout << DFLT_CONSTRUCTOR_ANC << '\n';
+	std::cout << DFLT_CONSTRUCTOR_ANC << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << CPY_CONSTRUCTOR_ANC << '\n';
+	std::cout << CPY_CONSTRUCTOR_ANC << std::endl;
 	*this = other;
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout << DESTRUCTOR_ANC << '\n';
+	std::cout << DESTRUCTOR_ANC << std::endl;
 }
 
 /* ================== Operator Overloading ================== */
 
 Fixed& Fixed::operator=(const Fixed &number)
 {
-	std::cout << CPY_ASSIGNMENT_OP_ANC << '\n';
+	std::cout << CPY_ASSIGNMENT_OP_ANC << std::endl;
 	this->fixedPoint = number.getRawBits();
 	return (*this);
 }
@@ -31,7 +31,7 @@ Fixed& Fixed::operator=(const Fixed &number)
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << GETRAWBITS_ANC << '\n';
+	std::cout << GETRAWBITS_ANC << std::endl;
 	return this->fixedPoint;
 }
 
