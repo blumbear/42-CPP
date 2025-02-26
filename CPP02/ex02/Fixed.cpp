@@ -160,3 +160,32 @@ float	Fixed::toFloat( void ) const
 {
 	return (float)(this->fixedPoint) / (1 << this->rawBits);
 }
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return (b);
+	return (a);
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return (b);
+	return (a);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return (a);
+	return (b);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return (a);
+	return (b);
+}
+

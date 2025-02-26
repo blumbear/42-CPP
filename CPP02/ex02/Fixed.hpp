@@ -65,4 +65,9 @@ class Fixed
 		int	toInt( void ) const;
 		float	toFloat( void ) const;
 
+		Fixed static &min(Fixed &a, Fixed &b);
+		const Fixed static &min(const Fixed &a, const Fixed &b);
+		Fixed static &max(Fixed &a, Fixed &b);
+		const Fixed static &max(const Fixed &a, const Fixed &b);
+
 };
