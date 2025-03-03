@@ -14,5 +14,6 @@ int main( void )
 	B.takeDamage(A.getAttack());
 	A.attack(B.getName());
 	B.takeDamage(A.getAttack());
+	B.attack(A.getName());
 	return (0);
 }
