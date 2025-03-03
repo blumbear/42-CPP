@@ -1,0 +1,15 @@
+#pragma once
+
+#define SV_DFLT_CONSTRUCTOR_ANC "Default ScavTrap constructor called."
+#define SV_CPY_CONSTRUCTOR_ANC "Copy ScavTrap constructor called."
+#define SV_NAME_CONSTRUCTOR_ANC "Name ScavTrap constructor called."
+#define SV_DESTRUCTOR_ANC "ScavTrap Destructor called."
+#define SV_NAME_ALLREADY_SET "ScavTrap name's is already set."
+#define SV_IS_DEAD "ScavTrap is dead."
+#define SV_ALREADY_DEAD "ScavTrap is already dead."
+#define SV_DEAD_CANT_ATTACK "ScavTrap is already dead and can't attack."
+#define SV_ENERGY_CANT_ATTACK "ScavTrap is already tired and can't attack."
+#define SV_GUARD_GATE "ScavTrap is now in GateKeeper mode."
+#define SV_DEAD_GUARD_GATE "ScavTrap is already dead and can't use GuardKeeper mode."
+#define SV_ENERGY_GUARD_GATE "ScavTrap is already tired and can't use GuardKeeper mode."
+#define SV_GUARD_GATE_TAKE_DMG "ScavTrap's Guard Gate take damage."
