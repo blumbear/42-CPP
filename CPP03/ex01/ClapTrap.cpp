@@ -5,24 +5,24 @@
 
 ClapTrap::ClapTrap() : Name("Default"), HitPoint(100), EnergyPoint(50), AttackDamage(20)
 {
-	std::cout << CP_DFLT_CONSTRUCTOR_ANC << std::endl;
+	std::cout << CLP_DFLT_CONSTRUCTOR_ANC << std::endl;
 }
 
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
- 	std::cout << CP_CPY_CONSTRUCTOR_ANC << std::endl;
+ 	std::cout << CLP_CPY_CONSTRUCTOR_ANC << std::endl;
 	*this = other;
 }
 
 ClapTrap::ClapTrap(const std::string name) : Name(name), HitPoint(100), EnergyPoint(50), AttackDamage(20)
 {
- 	std::cout << CP_NAME_CONSTRUCTOR_ANC << std::endl;
+ 	std::cout << CLP_NAME_CONSTRUCTOR_ANC << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
- 	std::cout << CP_DESTRUCTOR_ANC << std::endl;
+ 	std::cout << CLP_DESTRUCTOR_ANC << std::endl;
 }
 
 /* ========================= Setter ========================= */
@@ -30,7 +30,7 @@ ClapTrap::~ClapTrap()
 void ClapTrap::setName(std::string Name)
 {
 	if (this->Name != "Default")
-		std::cout << CP_NAME_ALLREADY_SET << std::endl;
+		std::cout << CLP_NAME_ALLREADY_SET << std::endl;
 	else
 		this->Name = Name;
 }
@@ -78,12 +78,12 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->HitPoint <= 0)
 	{
-		std::cout << CP_DEAD_CANT_ATTACK << std::endl;
+		std::cout << CLP_DEAD_CANT_ATTACK << std::endl;
 		return ;
 	}
 	else if (this->EnergyPoint <= 0)
 	{
-		std::cout << CP_ENERGY_CANT_ATTACK << std::endl;
+		std::cout << CLP_ENERGY_CANT_ATTACK << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap "
@@ -100,12 +100,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (HitPoint <= 0)
 	{
-		std::cout << CP_ALREADY_DEAD << std::endl;
+		std::cout << CLP_ALREADY_DEAD << std::endl;
 		return ;
 	}
 	this->HitPoint -= amount;
 	if (HitPoint <= 0)
-		std::cout << CP_IS_DEAD << std::endl;
+		std::cout << CLP_IS_DEAD << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

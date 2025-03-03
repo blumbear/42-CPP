@@ -5,23 +5,23 @@
 
 ScavTrap::ScavTrap() : ClapTrap(), Name("Default"), HitPoint(100), EnergyPoint(50), AttackDamage(20), guard(false)
 {
-	std::cout << SV_DFLT_CONSTRUCTOR_ANC << std::endl;
+	std::cout << SCV_DFLT_CONSTRUCTOR_ANC << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name), Name(Name), HitPoint(100), EnergyPoint(50), AttackDamage(20), guard(false)
 {
-	std::cout << SV_NAME_CONSTRUCTOR_ANC << std::endl;
+	std::cout << SCV_NAME_CONSTRUCTOR_ANC << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other)
 {
-	std::cout << SV_CPY_CONSTRUCTOR_ANC << std::endl;
+	std::cout << SCV_CPY_CONSTRUCTOR_ANC << std::endl;
 	*this = other; 
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << SV_DESTRUCTOR_ANC << std::endl;
+	std::cout << SCV_DESTRUCTOR_ANC << std::endl;
 }
 
 /* ========================= Setter ========================= */
@@ -76,12 +76,12 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->HitPoint <= 0)
 	{
-		std::cout << SV_DEAD_CANT_ATTACK << std::endl;
+		std::cout << SCV_DEAD_CANT_ATTACK << std::endl;
 		return ;
 	}
 	else if (this->EnergyPoint <= 0)
 	{
-		std::cout << SV_ENERGY_CANT_ATTACK << std::endl;
+		std::cout << SCV_ENERGY_CANT_ATTACK << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap "
@@ -98,18 +98,18 @@ void ScavTrap::takeDamage(unsigned int amount)
 {
 	if (HitPoint <= 0)
 	{
-		std::cout << SV_ALREADY_DEAD << std::endl;
+		std::cout << SCV_ALREADY_DEAD << std::endl;
 		return ;
 	}
 	else if (this->guard == true)
 	{
-		std::cout << SV_GUARD_GATE_TAKE_DMG << std::endl;
+		std::cout << SCV_GUARD_GATE_TAKE_DMG << std::endl;
 		this->guard = false;
 		return ;
 	}
 	this->HitPoint -= amount;
 	if (HitPoint <= 0)
-		std::cout << SV_IS_DEAD << std::endl;
+		std::cout << SCV_IS_DEAD << std::endl;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
@@ -121,16 +121,16 @@ void ScavTrap::guardGate( void )
 {
 	if (this->HitPoint <= 0)
 	{
-		std::cout << SV_DEAD_GUARD_GATE << std::endl;
+		std::cout << SCV_DEAD_GUARD_GATE << std::endl;
 		return ;
 	}
 	else if (this->EnergyPoint <= 0)
 	{
-		std::cout << SV_ENERGY_GUARD_GATE << std::endl;
+		std::cout << SCV_ENERGY_GUARD_GATE << std::endl;
 		return ;
 	}
 	this->EnergyPoint -= 1;
 	this->guard = true;
-	std::cout << SV_GUARD_GATE << std::endl;
+	std::cout << SCV_GUARD_GATE << std::endl;
 }
 
