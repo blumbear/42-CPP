@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ClapTrap.hpp"
 
 #define DFLT_CONSTRUCTOR_ANC "Default ClapTrap constructor called."
 #define CPY_CONSTRUCTOR_ANC "Copy ClapTrap constructor called."
