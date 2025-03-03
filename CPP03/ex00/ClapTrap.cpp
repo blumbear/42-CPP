@@ -74,8 +74,18 @@ int ClapTrap::getAttack( void )
 
 /* ========================== Else ========================== */
 
-void ClapTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
+	if (this->HitPoint <= 0)
+	{
+		std::cout << DEAD_CANT_ATTACK << std::endl;
+		return ;
+	}
+	else if (this->EnergyPoint <= 0)
+	{
+		std::cout << ENERGY_CANT_ATTACK << std::endl;
+		return ;
+	}
 	std::cout << "ClapTrap "
 			<< this->Name
 			<< " attacks "
