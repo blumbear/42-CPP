@@ -105,7 +105,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 	this->HitPoint -= amount;
 	if (HitPoint <= 0)
-		std::cout << DEAD << std::endl;
+		std::cout << IS_DEAD << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
