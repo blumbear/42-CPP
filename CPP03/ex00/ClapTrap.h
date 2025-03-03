@@ -5,7 +5,7 @@
 #define CLP_NAME_CONSTRUCTOR_ANC "Name ClapTrap constructor called."
 #define CLP_DESTRUCTOR_ANC "ClapTrap Destructor called."
 #define CLP_NAME_ALLREADY_SET "ClapTrap name's is already set."
-#define CLP_IS_DEAD "ClapTrap is dead."
+#define IS_DEAD " is dead."
 #define CLP_ALREADY_DEAD "ClapTrap is already dead."
 #define CLP_DEAD_CANT_ATTACK "ClapTrap is already dead and can't attack."
 #define CLP_ENERGY_CANT_ATTACK "ClapTrap is already tired and can't attack."

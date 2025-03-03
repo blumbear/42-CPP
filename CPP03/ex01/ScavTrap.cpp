@@ -109,7 +109,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 	}
 	this->HitPoint -= amount;
 	if (HitPoint <= 0)
-		std::cout << SCV_IS_DEAD << std::endl;
+		std::cout << "ScavTrap " << this->Name << IS_DEAD << std::endl;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)

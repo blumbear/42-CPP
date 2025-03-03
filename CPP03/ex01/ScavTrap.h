@@ -5,7 +5,7 @@
 #define SCV_NAME_CONSTRUCTOR_ANC "Name ScavTrap constructor called."
 #define SCV_DESTRUCTOR_ANC "ScavTrap Destructor called."
 #define SCV_NAME_ALLREADY_SET "ScavTrap name's is already set."
-#define SCV_IS_DEAD "ScavTrap is dead."
+#define IS_DEAD " is dead."
 #define SCV_ALREADY_DEAD "ScavTrap is already dead."
 #define SCV_DEAD_CANT_ATTACK "ScavTrap is already dead and can't attack."
 #define SCV_ENERGY_CANT_ATTACK "ScavTrap is already tired and can't attack."
