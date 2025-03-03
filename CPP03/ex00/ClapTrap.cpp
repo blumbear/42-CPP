@@ -74,7 +74,7 @@ int ClapTrap::getAttack( void )
 
 /* ========================== Else ========================== */
 
-void ScavTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string& target)
 {
 	if (this->HitPoint <= 0)
 	{
