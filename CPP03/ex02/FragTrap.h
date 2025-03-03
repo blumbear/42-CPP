@@ -1,0 +1,14 @@
+#pragma once
+
+#define FRG_DFLT_CONSTRUCTOR_ANC "Default FragTrap constructor called."
+#define FRG_CPY_CONSTRUCTOR_ANC "Copy FragTrap constructor called."
+#define FRG_NAME_CONSTRUCTOR_ANC "Name FragTrap constructor called."
+#define FRG_DESTRUCTOR_ANC "FragTrap Destructor called."
+#define FRG_NAME_ALLREADY_SET "FragTrap name's is already set."
+#define IS_DEAD " is dead."
+#define FRG_ALREADY_DEAD "FragTrap is already dead."
+#define FRG_DEAD_CANT_ATTACK "FragTrap is already dead and can't attack."
+#define FRG_ENERGY_CANT_ATTACK "FragTrap is already tired and can't attack."
+#define FRG_HIGH_FIVE "FragTrap request for an HighFive."
+#define FRG_DEAD_HIGH_FIVE "FragTrap is already dead and can't reauest for an HighFive."
+#define FRG_ENERGY_HIGH_FIVE "FragTrap is already tired but HighFive request come from heart and don't need any energy."
