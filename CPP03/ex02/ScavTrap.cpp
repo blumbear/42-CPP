@@ -114,6 +114,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
+	std::cout << SCV_REPARATION << std::endl;
 	this->HitPoint += amount;
 }
 

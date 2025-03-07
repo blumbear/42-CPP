@@ -9,3 +9,4 @@
 #define CLP_ALREADY_DEAD "ClapTrap is already dead."
 #define CLP_DEAD_CANT_ATTACK "ClapTrap is already dead and can't attack."
 #define CLP_ENERGY_CANT_ATTACK "ClapTrap is already tired and can't attack."
+#define CLP_REPARATION "ClapTrap use his reparation."

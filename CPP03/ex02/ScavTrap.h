@@ -13,3 +13,4 @@
 #define SCV_DEAD_GUARD_GATE "ScavTrap is already dead and can't use GuardKeeper mode."
 #define SCV_ENERGY_GUARD_GATE "ScavTrap is already tired and can't use GuardKeeper mode."
 #define SCV_GUARD_GATE_TAKE_DMG "ScavTrap's Guard Gate take damage."
+#define SCV_REPARATION "ScavTrap use his reparation."
