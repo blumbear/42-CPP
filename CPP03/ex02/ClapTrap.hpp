@@ -18,6 +18,7 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(std::string Name);
 		ClapTrap(const ClapTrap &other);
+		ClapTrap &operator=(const ClapTrap &other);
 		~ClapTrap();
 
 /* ========================= Setter ========================= */

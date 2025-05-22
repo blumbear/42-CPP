@@ -20,6 +20,14 @@ ClapTrap::ClapTrap(const std::string name) : Name(name), HitPoint(10), EnergyPoi
  	std::cout << CLP_NAME_CONSTRUCTOR_ANC << std::endl;
 }
 
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	if (this != &other)
+		ClapTrap::operator=(other);
+	std::cout << CLP_CPY_ASSIGNEMENT_ANC << std::endl;
+	return (*this);
+}
+
 ClapTrap::~ClapTrap()
 {
  	std::cout << CLP_DESTRUCTOR_ANC << std::endl;

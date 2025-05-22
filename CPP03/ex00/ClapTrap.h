@@ -2,6 +2,7 @@
 
 #define CLP_DFLT_CONSTRUCTOR_ANC "Default ClapTrap constructor called."
 #define CLP_CPY_CONSTRUCTOR_ANC "Copy ClapTrap constructor called."
+#define CLP_CPY_ASSIGNEMENT_ANC "ClapTrap Copy assignement called."
 #define CLP_NAME_CONSTRUCTOR_ANC "Name ClapTrap constructor called."
 #define CLP_DESTRUCTOR_ANC "ClapTrap Destructor called."
 #define CLP_NAME_ALLREADY_SET "ClapTrap name's is already set."

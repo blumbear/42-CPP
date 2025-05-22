@@ -1,6 +1,7 @@
 #pragma once
 
 #define SCV_DFLT_CONSTRUCTOR_ANC "Default ScavTrap constructor called."
+#define SCV_CPY_ASSIGNEMENT_ANC "ScavTrap Copy assignement called."
 #define SCV_CPY_CONSTRUCTOR_ANC "Copy ScavTrap constructor called."
 #define SCV_NAME_CONSTRUCTOR_ANC "Name ScavTrap constructor called."
 #define SCV_DESTRUCTOR_ANC "ScavTrap Destructor called."

@@ -1,5 +1,5 @@
 
-FILES = main ClapTrap ScavTrap FragTrap DiamondTrap
+FILES = main ClapTrap ScavTrap FragTrap
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))

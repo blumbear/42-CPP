@@ -8,6 +8,10 @@ ClapTrap::ClapTrap() : Name("Default"), HitPoint(100), EnergyPoint(50), AttackDa
 	std::cout << CLP_DFLT_CONSTRUCTOR_ANC << std::endl;
 }
 
+ClapTrap::ClapTrap(const std::string name) : Name(name), HitPoint(100), EnergyPoint(50), AttackDamage(20)
+{
+ 	std::cout << CLP_NAME_CONSTRUCTOR_ANC << std::endl;
+}
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
@@ -15,9 +19,12 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	*this = other;
 }
 
-ClapTrap::ClapTrap(const std::string name) : Name(name), HitPoint(100), EnergyPoint(50), AttackDamage(20)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
- 	std::cout << CLP_NAME_CONSTRUCTOR_ANC << std::endl;
+	if (this != &other)
+		ClapTrap::operator=(other);
+	std::cout << CLP_CPY_ASSIGNEMENT_ANC << std::endl;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap()

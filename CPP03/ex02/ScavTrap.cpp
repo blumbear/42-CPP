@@ -13,10 +13,18 @@ ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name), Name(Name), HitPoint(100)
 	std::cout << SCV_NAME_CONSTRUCTOR_ANC << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
 	std::cout << SCV_CPY_CONSTRUCTOR_ANC << std::endl;
 	*this = other; 
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+	if (this != &other)
+		ClapTrap::operator=(other);
+	std::cout << SCV_CPY_ASSIGNEMENT_ANC << std::endl;
+	return (*this);
 }
 
 ScavTrap::~ScavTrap()

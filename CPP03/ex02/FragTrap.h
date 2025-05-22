@@ -1,6 +1,7 @@
 #pragma once
 
 #define FRG_DFLT_CONSTRUCTOR_ANC "Default FragTrap constructor called."
+#define FRG_CPY_ASSIGNEMENT_ANC "FragTrap Copy assignement called."
 #define FRG_CPY_CONSTRUCTOR_ANC "Copy FragTrap constructor called."
 #define FRG_NAME_CONSTRUCTOR_ANC "Name FragTrap constructor called."
 #define FRG_DESTRUCTOR_ANC "FragTrap Destructor called."

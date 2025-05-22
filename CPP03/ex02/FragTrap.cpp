@@ -13,10 +13,18 @@ FragTrap::FragTrap(std::string Name)  : ClapTrap(Name), Name(Name), HitPoint(100
 	std::cout << FRG_NAME_CONSTRUCTOR_ANC << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &other)
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
 	std::cout << FRG_CPY_CONSTRUCTOR_ANC << std::endl;
 	*this = other;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &other)
+{
+	if (this != &other)
+		ClapTrap::operator=(other);
+	std::cout << FRG_CPY_ASSIGNEMENT_ANC << std::endl;
+	return (*this);
 }
 
 FragTrap::~FragTrap()
