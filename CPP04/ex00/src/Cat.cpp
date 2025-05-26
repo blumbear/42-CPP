@@ -4,6 +4,7 @@
 Cat::Cat()
 {
 	std::cout << "Cat constructor |" << std::endl;
+	type = "Cat";
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
@@ -27,14 +28,14 @@ Cat &Cat::operator=(const Cat &other)
 
 /* ===================== getter ===================== */
 
-std::string Cat::getType()
+std::string Cat::getType() const
 {
-	return ("Cat");
+	return (type);
 }
 
 /* ================= Member Function ================= */
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
 }

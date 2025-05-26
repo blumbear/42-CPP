@@ -3,6 +3,9 @@
 #include "Animal.hpp"
 
 class Dog : public Animal {
+	protected:
+		std::string type;
+
 	public:
 /* ================= Canonical Form ================= */
 
@@ -13,9 +16,9 @@ class Dog : public Animal {
 
 /* ===================== getter ===================== */
 
-		std::string getType();
+		std::string getType() const;
 
 /* ================= Member Function ================= */
 
-		void makeSound();
+		void makeSound() const;
 };

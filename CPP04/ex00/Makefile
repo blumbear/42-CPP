@@ -1,8 +1,9 @@
 
-FILES = main Animal Cat Dog 
+FILES = main Animal Cat Dog WrongAnimal WrongCat
 
 OBJ_DIR = obj/
-SRCS =  $(addsuffix .cpp, $(FILES))
+SRC_DIR = src/
+SRCS =  $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
 OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 CC = c++
@@ -15,7 +16,7 @@ all : $(NAME)
 $(NAME) : $(OBJ_DIR) $(OBJS)
 	$(CC)  $(CFLAGS) -o $(NAME) $(OBJS)
 
-obj/%.o: %.cpp
+obj/%.o: src/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

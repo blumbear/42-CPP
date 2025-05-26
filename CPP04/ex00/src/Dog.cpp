@@ -4,6 +4,7 @@
 Dog::Dog()
 {
 	std::cout << "Dog constructor |" << std::endl;
+	type = "Dog";
 }
 
 Dog::Dog(const Dog &other) : Animal(other)
@@ -27,14 +28,14 @@ Dog &Dog::operator=(const Dog &other)
 
 /* ===================== getter ===================== */
 
-std::string Dog::getType()
+std::string Dog::getType() const
 {
-	return ("Dog");
+	return (type);
 }
 
 /* ================= Member Function ================= */
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "Waff" << std::endl;
 }

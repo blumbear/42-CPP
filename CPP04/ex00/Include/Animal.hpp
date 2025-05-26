@@ -18,10 +18,10 @@ class Animal {
 
 /* ===================== getter ===================== */
 
-		virtual std::string getType();
+		virtual std::string getType() const;
 
 /* ================= Member Function ================= */
 
-		virtual void makeSound();
+		virtual void makeSound() const;
 
 };

@@ -28,14 +28,14 @@ Animal &Animal::operator=(const Animal &other)
 
 /* ===================== getter ===================== */
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
 	return (type);
 }
 
 /* ================= Member Function ================= */
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
-	std::cout << "Bonjour" << std::endl;
+	std::cout << "Hello World" << std::endl;
 }
