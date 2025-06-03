@@ -21,7 +21,7 @@ Cat &Cat::operator=(const Cat &other)
 {
 	std::cout << "Cat copy assignement |" << std::endl;
 	if (this != &other)
-		Cat::operator=(other);
+		type = other.type;
 	return (*this);
 }
 
