@@ -23,6 +23,7 @@ int main(void)
 	std::cout << "-----" << std::endl;
 	
 	Dog basic;{ Dog tmp = basic;}
+	std::cout << std::endl;
 
 	const Animal* dog = new Dog();
 	const WrongAnimal* cat = new WrongCat();
