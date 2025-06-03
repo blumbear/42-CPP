@@ -1,10 +1,9 @@
 #include "Cat.hpp"
 
 /* ================= Canonical Form ================= */
-Cat::Cat()
+Cat::Cat() : type("Cat") 
 {
 	std::cout << "Cat constructor |" << std::endl;
-	type = "Cat";
 }
 
 Cat::Cat(const Cat &other) : Animal(other)

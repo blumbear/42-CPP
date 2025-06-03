@@ -1,10 +1,9 @@
 #include "Dog.hpp"
 
 /* ================= Canonical Form ================= */
-Dog::Dog()
+Dog::Dog() : type("Dog")
 {
 	std::cout << "Dog constructor |" << std::endl;
-	type = "Dog";
 }
 
 Dog::Dog(const Dog &other) : Animal(other)
