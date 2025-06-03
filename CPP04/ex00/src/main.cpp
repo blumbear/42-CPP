@@ -21,6 +21,8 @@ int main(void)
 
 	std::cout << "Other test" <<std::endl;
 	std::cout << "-----" << std::endl;
+	
+	Dog basic;{ Dog tmp = basic;}
 
 	const Animal* dog = new Dog();
 	const WrongAnimal* cat = new WrongCat();
