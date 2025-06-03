@@ -13,7 +13,7 @@ class Animal {
 
 		Animal();
 		Animal(const Animal &other);
-		~Animal();
+		virtual ~Animal();
 		Animal &operator=(const Animal &other);
 
 /* ===================== getter ===================== */
@@ -23,5 +23,4 @@ class Animal {
 /* ================= Member Function ================= */
 
 		virtual void makeSound() const;
-
 };

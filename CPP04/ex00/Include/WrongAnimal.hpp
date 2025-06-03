@@ -13,7 +13,7 @@ class WrongAnimal {
 
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &other);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal &operator=(const WrongAnimal &other);
 
 /* ===================== getter ===================== */
@@ -23,5 +23,4 @@ class WrongAnimal {
 /* ================= Member Function ================= */
 
 		virtual void makeSound() const;
-
 };
