@@ -11,35 +11,37 @@ Harl::~Harl() {}
 
 void Harl::debug( void )
 {
-	std::cout << DEBUG_MSG << '\n';
+	std::cout << DEBUG_MSG << std::endl;
 }
 
 void Harl::info( void )
 {
-	std::cout << INFO_MSG << '\n';
+	std::cout << INFO_MSG << std::endl;
 }
 
 void Harl::warning( void )
 {
-	std::cout << WARNING_MSG << '\n';
+	std::cout << WARNING_MSG << std::endl;
 }
 
 void Harl::error( void )
 {
-	std::cout << ERROR_MSG << '\n';
+	std::cout << ERROR_MSG << std::endl;
 }
 
 
 void Harl::complain(std::string level)
 {
-	std::map<std::string, void (Harl::*)()> actions;
-	actions.insert(std::make_pair("DEBUG", &Harl::debug));
-	actions.insert(std::make_pair("INFO", &Harl::info));
-	actions.insert(std::make_pair("WARNING", &Harl::warning));
-	actions.insert(std::make_pair("ERROR", &Harl::error));
+	std::string actions[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*func_tab[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	if (actions.find(level) != actions.end())
-		(this->*actions[level])();
-	else
-		std::cout << INPUT_ERROR << '\n';
+	for (int i = 0; i < 4; i++)
+	{
+		if (actions[i] == level){
+			(this->*func_tab[i])();
+			return ;
+		}
+	}
+	std::cout << INPUT_ERROR << std::endl;
+	return ;
 }
