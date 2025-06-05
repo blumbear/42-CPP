@@ -8,7 +8,7 @@ OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 CC = c++
 CFLAGS = -Wall -Wextra  -std=c++98 -IInclude
 
-NAME = harlFilter
+NAME = HarlFilter
 
 all : $(TEST_FILE) $(NAME)
 

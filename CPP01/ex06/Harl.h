@@ -10,5 +10,5 @@
 
 /* ================ Error Message ================ */
 
-#define USAGE_ERROR "Usage -> ./Harl <Harl Comment's>"
+#define USAGE_ERROR "Usage -> ./HarlFilter <Harl Comment's>.\n You can use four command, DEBUG, INFO, WARNING or ERROR."
 #define COMPLAIN_ERROR "Error -> Switch error in void Harl::complain(std::string level)"
