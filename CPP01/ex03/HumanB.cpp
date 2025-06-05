@@ -2,15 +2,9 @@
 
 /* ============ Constructor & Destructor ============ */
 
-HumanB::HumanB(void)
-{
-	this->name = "HumanB";
-}
+HumanB::HumanB(void) : name("HumanB"), weapon(NULL) {}
 
-HumanB::HumanB(const std::string &name) : name(name)
-{
-	this->name = name;
-}
+HumanB::HumanB(const std::string &name) : name(name), weapon(NULL) {}
 
 HumanB::~HumanB(void) {}
 
@@ -23,10 +17,16 @@ void HumanB::setWeapon(Weapon &weapon)
 
 /* ==================== Printer ==================== */
 
-void	HumanB::attack(void) const
-{
+void	HumanB::attack(void) const {
+	if (weapon == NULL) {
+		std::cout << this->name
+			<< " attacks with their fist"
+			<< std::endl;
+	}
+	else {
 	std::cout << this->name
 			<< " attacks with their "
 			<< weapon->getType()
-			<< '\n';
+			<< std::endl;
+	}
 }
