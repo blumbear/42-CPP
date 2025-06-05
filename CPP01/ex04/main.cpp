@@ -2,7 +2,7 @@
 
 int	print_error(std::string Error)
 {
-	std::cout << Error << '\n';
+	std::cout << Error << std::endl;
 	return (0);
 }
 
@@ -27,6 +27,8 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 		return (print_error(USAGE_ERROR));
+	if (av[2][0] == 0)
+		return (print_error(ARG_ERROR));
 	std::ifstream infile(av[1]);
 	if (!infile.is_open())
 		return (print_error(FILE_ERROR));
