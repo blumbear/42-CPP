@@ -5,8 +5,9 @@
 
 class Character : public ICharacter, public AMateria{
 	private:
-		std::string name;
-
+		std::string	name;
+		AMateria *inventory[4];
+		AMateria *floor;
 	public:
 /* ================== Coonstructor ================== */
 
