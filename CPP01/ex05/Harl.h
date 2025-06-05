@@ -10,4 +10,4 @@
 /* ================ Error Message ================ */
 
 #define USAGE_ERROR "Usage -> ./Harl <Harl Comment's>"
-#define INPUT_ERROR "You only have 4 input possible : \033[34mDEBUG\033[0m \033[32mINFO\033[0m \033[33mWARNING\033[0m \033[31mERROR\033[0m"
+#define INPUT_ERROR "You only have 4 input possible : \n- \033[34mDEBUG\033[0m \n- \033[32mINFO\033[0m \n- \033[33mWARNING\033[0m \n- \033[31mERROR\033[0m"
