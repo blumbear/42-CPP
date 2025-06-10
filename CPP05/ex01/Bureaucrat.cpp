@@ -1,9 +1,9 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept>
 
-const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Error: the grade is too high");}
+const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Bureaucrat::The grade is too high.");}
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Error: the grade is too low");}
+const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Bureaucrat::The grade is too law.");}
 
 /* ================== Constructor ================== */
 
@@ -13,22 +13,22 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
 	else if (grade > 150)
 		throw (GradeTooLowException());
 	_grade = grade;
-	std::cout << "Param Constructer Called |" << std::endl;
+	std::cout << "B Param Constructor Called |" << std::endl;
 }
 
 /* ================= Canonical Form ================= */
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
-	std::cout << "Default Constructer Called |" << std::endl;
+	std::cout << "B Default Constructor Called |" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
-	std::cout << "Copy Constructer Called |" << std::endl;
+	std::cout << "B Copy Constructor Called |" << std::endl;
 	*this = other;
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Destructor Called |" << std::endl;
+	std::cout << "B Destructor Called |" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
@@ -54,7 +54,7 @@ void Bureaucrat::incrementGrade() {
 		std::cout << "Increment " << _name << " grade." << std::endl;
 	}
 	catch (bool test) {
-		std::cout << "Bureaucrat " << _name << "::GradeTooHighException" << std::endl;
+		throw (GradeTooHighException());
 	}
 }
 
@@ -66,8 +66,19 @@ void Bureaucrat::decrementGrade() {
 		std::cout << "Decrement " << _name << " grade." << std::endl;
 	}
 	catch (bool test) {
-		std::cout << "Bureaucrat " << _name << "::GradeTooLowException" << std::endl;
+		throw (GradeTooLowException());
 	}
+}
+
+void Bureaucrat::signForm(Form& form) {
+	try {
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e) {
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		return ; 
+	}
+	std::cout << _name << " signed " << form.getName() << std::endl;
 }
 
 /* ================ Overload Operator ================ */
