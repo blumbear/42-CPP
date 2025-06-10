@@ -11,6 +11,6 @@ int main(void)
 		std::cout << "id :" << i << " | ";
 		horde[i].announce();
 	}
-	std::cout << "-----------------------" << '\n';
+	std::cout << "-----------------------" << std::endl;
 	delete[] horde;
 }

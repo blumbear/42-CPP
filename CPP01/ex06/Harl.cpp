@@ -11,22 +11,22 @@ Harl::~Harl() {}
 
 void Harl::debug( void )
 {
-	std::cout << DEBUG_MSG << '\n' << '\n';
+	std::cout << DEBUG_MSG << std::endl << std::endl;
 }
 
 void Harl::info( void )
 {
-	std::cout << INFO_MSG << '\n' << '\n';
+	std::cout << INFO_MSG << std::endl << std::endl;
 }
 
 void Harl::warning( void )
 {
-	std::cout << WARNING_MSG << '\n' << '\n';
+	std::cout << WARNING_MSG << std::endl << std::endl;
 }
 
 void Harl::error( void )
 {
-	std::cout << ERROR_MSG << '\n' << '\n';
+	std::cout << ERROR_MSG << std::endl << std::endl;
 }
 
 int Harl::getLevelIndex(std::string level)
@@ -44,7 +44,7 @@ void Harl::complain(std::string level)
 	switch (getLevelIndex(level))
 	{
 		case -1:
-			std::cout << RANDOM_MSG << '\n';
+			std::cout << RANDOM_MSG << std::endl;
 			break;
 		case 0:
 			Harl::debug();
@@ -56,7 +56,7 @@ void Harl::complain(std::string level)
 			Harl::error();
 			break;
 		default:
-			std::cerr << COMPLAIN_ERROR << '\n';
+			std::cerr << COMPLAIN_ERROR << std::endl;
 			break;
 	}
 }

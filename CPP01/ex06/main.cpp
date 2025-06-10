@@ -5,7 +5,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << USAGE_ERROR << '\n';
+		std::cerr << USAGE_ERROR << std::endl;
 		return 0;
 	}
 	Harl harl = Harl();
