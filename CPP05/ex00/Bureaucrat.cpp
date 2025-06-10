@@ -1,9 +1,9 @@
 #include "Bureaucrat.hpp"
 #include <stdexcept>
 
-// const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Error: the grade is too high");}
+const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Error: the grade is too high");}
 
-// const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Error: the grade is too low");}
+const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Error: the grade is too low");}
 
 /* ================== Constructor ================== */
 
@@ -50,7 +50,7 @@ std::string Bureaucrat::getName() const {return (_name);}
 
 void Bureaucrat::incrementGrade() {
 	try {
-		if (_grade == 0)
+		if (_grade == 1)
 			throw false;
 		_grade--;
 		std::cout << "Increment " << _name << " grade." << std::endl;
