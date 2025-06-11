@@ -12,18 +12,18 @@ Form::Form(const std::string& name, const int signGrade,  const int _execGrade, 
 _name(name), _signed(approved), _signGrade(signGrade), _execGrade(_execGrade) {
 	std::cout << "F Constructor Called |" << std::endl;
 	if (_signGrade > 150 || _execGrade > 150)
-		throw (GradeTooHighException());
-	else if (_signGrade < 1 || _execGrade < 1)
 		throw (GradeTooLowException());
+	else if (_signGrade < 1 || _execGrade < 1)
+		throw (GradeTooHighException());
 }
 
 Form::Form(const Form &other) :
 _name(other._name), _signed(other._signed), _signGrade(other._signGrade), _execGrade(other._execGrade) {
 	std::cout << "F Copy Constructor Called |" << std::endl;
 	if (_signGrade > 150 || _execGrade > 150)
-		throw (GradeTooHighException());
-	else if (_signGrade < 1 || _execGrade < 1)
 		throw (GradeTooLowException());
+	else if (_signGrade < 1 || _execGrade < 1)
+		throw (GradeTooHighException());
 }
 
 Form::~Form() {
