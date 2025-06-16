@@ -11,7 +11,7 @@ int main()
 	{
 		// ShrubberyCreationForm tree("tree");
 		PresidentialPardonForm president("president");
-		// RobotomyRequestForm robot("robot");
+		RobotomyRequestForm robot("robot");
 		std::cout << std::endl;
 
 		Bureaucrat Michel("Michel", 125);
@@ -27,10 +27,11 @@ int main()
 		Laure.executeForm(president);
 		std::cout << std::endl;
 		
-		// Michel.signForm(robot);
-		// Michel.executeForm(robot);
-		// Laure.signForm(robot);
-		// Laure.executeForm(robot);
+		Michel.signForm(robot);
+		Michel.executeForm(robot);
+		Laure.signForm(robot);
+		Laure.executeForm(robot);
+		Laure.executeForm(robot);
 		std::cout << std::endl;
 		
 		// Michel.signForm(tree);
@@ -42,7 +43,7 @@ int main()
 		std::cout << Laure;
 		// std::cout << tree;
 		std::cout << president;
-		// std::cout << robot;
+		std::cout << robot;
 	}
 	catch (const std::exception& e)
 	{
