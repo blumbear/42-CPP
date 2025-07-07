@@ -63,6 +63,6 @@ std::ostream& operator<<(std::ostream& out, const AForm &other) {
 	out << other.getName()
 	<< (other.getSigned() == true ? " has been signed," : " has not been signed,")
 	<< " it needs a grade of " << other.getSignGrade() << " to be signed"
-	<< " and a grade of " << other.getExecGrade() << " to be executed\n";
+	<< " and a grade of " << other.getExecGrade() << " to be executed";
 	return (out);
 }

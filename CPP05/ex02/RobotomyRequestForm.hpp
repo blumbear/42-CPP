@@ -28,7 +28,7 @@ class RobotomyRequestForm : public AForm {
 
 /* ================= Canonical AForm ================= */
 
-		RobotomyRequestForm(const std::string& name = "", const int signGrade = 25, const int execGrade = 5);
+		RobotomyRequestForm(const std::string& target = "", const int signGrade = 25, const int execGrade = 5);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		virtual ~RobotomyRequestForm();
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);

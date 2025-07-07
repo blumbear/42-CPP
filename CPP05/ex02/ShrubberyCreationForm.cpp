@@ -14,9 +14,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target, const in
 AForm(target, signGrade, execGrade), _target(target)
 {
 	std::cout << "SCF Constructor Called |" << std::endl;
-	if (getSignGrade() > 25)
+	if (getSignGrade() > 145)
 		throw (ShrubberyCreationForm::GradeTooLowException());
-	else if (getExecGrade() > 5)
+	else if (getExecGrade() > 137)
 		throw (ShrubberyCreationForm::GradeTooLowException());
 }
 
@@ -24,9 +24,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 AForm(other.getName(), other.getSignGrade(), other.getExecGrade()), _target(other._target)
 {
 	std::cout << "SCF Copy Constructor Called |" << std::endl;
-	if (getSignGrade() > 25)
+	if (getSignGrade() > 145)
 		throw (ShrubberyCreationForm::GradeTooLowException());
-	else if (getExecGrade() > 5)
+	else if (getExecGrade() > 137)
 		throw (ShrubberyCreationForm::GradeTooLowException());
 }
 
@@ -45,12 +45,44 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 /* ================ Menmber Function ================ */
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	int fd;
-	const std::string tmp = executor.getName() + "_shrubbery";
+	std::ofstream file((_target + "_shrubbery").c_str());
+	if (!file)
+		throw std::runtime_error("Error opening file");
+
 	if (!getSigned())
 		throw (ShrubberyCreationForm::FormIsNotSignedException());
 	else if (executor.getGrade() <= getExecGrade()) {
-		fd << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;}
+		file << 
+			"                                                          ." << std::endl << 
+			"                                              .         ;  " << std::endl << 
+			"                 .              .              ;%     ;;   " << std::endl << 
+			"                   ,           ,                :;%  %;   " << std::endl << 
+			"                    :         ;                   :;%;'     .,   " << std::endl << 
+			"           ,.        %;     %;            ;        %;'    ,;" << std::endl << 
+			"             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl << 
+			"              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl << 
+			"               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl << 
+			"                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl << 
+			"                 `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl << 
+			"                    `:%;.  :;bd%;          %;@%;'" << std::endl << 
+			"                      `@%:.  :;%.         ;@@%;'   " << std::endl << 
+			"                        `@%.  `;@%.      ;@@%;         " << std::endl << 
+			"                          `@%%. `@%%    ;@@%;        " << std::endl << 
+			"                            ;@%. :@%%  %@@%;       " << std::endl << 
+			"                              %@bd%%%bd%%:;     " << std::endl << 
+			"                                #@%%%%%:;;" << std::endl << 
+			"                                %@@%%%::;" << std::endl << 
+			"                                %@@@%(o);  . '         " << std::endl << 
+			"                                %@@@o%;:(.,'         " << std::endl << 
+			"                            `.. %@@@o%::;         " << std::endl << 
+			"                               `)@@@o%::;         " << std::endl << 
+			"                                %@@(o)::;        " << std::endl << 
+			"                               .%@@@@%::;         " << std::endl << 
+			"                               ;%@@@@%::;.          " << std::endl << 
+			"                              ;%@@@@%%:;;;. " << std::endl << 
+			"                          ...;%@@@@@%%:;;;;,.. " << std::endl; 
+		file.close(); 
+		std::cout << "Shrubbery created in " << _target << "_shrubbery" << std::endl;}
 	else
 		throw(ShrubberyCreationForm::GradeTooLowException());
 }
