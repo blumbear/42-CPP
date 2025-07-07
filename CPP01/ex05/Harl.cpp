@@ -35,6 +35,7 @@ void Harl::complain(std::string level)
 	std::string actions[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*func_tab[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
+	std::cout << level << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (actions[i] == level){
