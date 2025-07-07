@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -7,58 +8,42 @@
 
 int main()
 {
-	try
-	{
-		ShrubberyCreationForm tree("tree");
-		PresidentialPardonForm president("president");
-		RobotomyRequestForm robot("robot");
-		std::cout << std::endl;
+	Intern intern;
+	AForm *form;
+	Bureaucrat signer("Jean-Michel", 1); // grade suffisant pour tout
 
-		Bureaucrat Michel("Michel", 125);
-		Bureaucrat Laure("Laure", 1);
-		std::cout << std::endl;
-		
-		std::cout << "---Michel PPF test---" << std::endl;
-		Michel.signForm(president);
-		Michel.executeForm(president);
-		std::cout << president;
-		std::cout << std::endl;
-		
-		std::cout << "---Laure PPF test---" << std::endl;
-		Laure.signForm(president);
-		Laure.executeForm(president);
-		std::cout << std::endl;
-		
-		std::cout << "---Michel RRF test---" << std::endl;
-		Michel.signForm(robot);
-		Michel.executeForm(robot);
-		std::cout << std::endl;
+	struct Test {
+		const char *nameForm;
+		const char *target;
+	};
 
-		std::cout << "---Laure RRF test---" << std::endl;
-		Laure.signForm(robot);
-		Laure.executeForm(robot);
-		Laure.executeForm(robot);
-		std::cout << std::endl;
-		
-		std::cout << "---Michel SCF test---" << std::endl;
-		Michel.signForm(tree);
-		Michel.executeForm(tree);
-		std::cout << std::endl;
+	const Test tabTest[] = {
+		{ "shrubbery creation", "bonjour_a_tous" },
+		{ "robotomy request", "Bender" },
+		{ "presidential pardon", "Zaphod" },
+		{ "invalid form", "Problems" } // erreur ici
+	};
 
-		std::cout << "---Laure SCF test---" << std::endl;
-		Laure.signForm(tree);
-		Laure.executeForm(tree);
-		std::cout << std::endl;
-		
-		std::cout << Michel << std::endl ;
-		std::cout << Laure << std::endl ;
-		std::cout << tree << std::endl ;
-		std::cout << president << std::endl ;
-		std::cout << robot << std::endl << std::endl ;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what();
+	for (int i = 0; i < 4; i++) {
+		std::cout << "\nTrying to create: " << tabTest[i].nameForm
+				<< " for " << tabTest[i].target << std::endl;
+
+		form = intern.makeForm(tabTest[i].nameForm, tabTest[i].target);
+
+		if (form) {
+			std::cout << "Form " << form->getName() << " successfully created\n";
+
+			try {
+				signer.signForm(*form);
+				signer.executeForm(*form);
+			} catch (const std::exception &e) {
+				std::cerr << "Error during form handling: " << e.what() << std::endl;
+			}
+
+			delete form;
+		} else {
+			std::cout << "Failed to create form: " << tabTest[i].nameForm << "\n";
+		}
 	}
 	return 0;
 }

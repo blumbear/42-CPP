@@ -1,5 +1,7 @@
 
-FILES = main Bureaucrat AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
+FILES = main Bureaucrat \
+AForm PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm \
+Intern
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))
