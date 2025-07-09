@@ -2,9 +2,9 @@
 
 #include <string>
 #include <iostream>
-#include <sstream>
-#include <cstdlib>
-#include <cctype>
+#include <sstream> // for stringstream type
+#include <cctype> // for isdigit
+#include <cmath> // for std::floor
 
 class ScalarConverter {
 	private :

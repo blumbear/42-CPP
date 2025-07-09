@@ -37,6 +37,8 @@ void	resultPrinter(ValueTab valueTab) {
 		std::cout << "impossible";
 	else if (valueTab.nan == true)
 		std::cout << "nan" << 'f';
+	else if (valueTab.f == std::floor(valueTab.f))
+		std::cout << valueTab.f << ".0" << 'f';
 	else
 		std::cout << valueTab.f << 'f';
 	std::cout << std::endl;
@@ -47,6 +49,8 @@ void	resultPrinter(ValueTab valueTab) {
 		std::cout << "impossible";
 	else if (valueTab.nan == true)
 		std::cout << "nan";
+	else if (valueTab.d == std::floor(valueTab.d))
+		std::cout << valueTab.d << ".0";
 	else
 		std::cout << valueTab.d;
 	std::cout << std::endl;
