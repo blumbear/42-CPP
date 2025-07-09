@@ -12,7 +12,7 @@ int main(void)
 	zombie->announce();
 	zombieq->announce();
 	zombies->announce();
-	zombie->~Zombie();
-	zombieq->~Zombie();
-	zombies->~Zombie();
+	delete zombie;
+	delete zombieq;
+	delete zombies;
 }
