@@ -1,3 +1,5 @@
+#pragma once
+
 template <class T>
 void swap (T a, T b) {
 	T tmp;
@@ -9,15 +11,15 @@ void swap (T a, T b) {
 template <class T>
 T min (T a, T b) {
 	T result;
-	result = (a<b)? a : b;
-	result = (result == a && result == b)? b : result;
+	result = (a < b)? a : b;
+	result = (a == b)? b : result;
 	return (result);
 }
 
 template <class T>
 T max (T a, T b) {
 	T result;
-	result = (a>b)? a : b;
-	result = (result == a && result == b)? b : result;
+	result = (a > b)? a : b;
+	result = (a == b)? b : result;
 	return (result);
 }
