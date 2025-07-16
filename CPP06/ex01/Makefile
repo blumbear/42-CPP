@@ -1,5 +1,5 @@
 
-FILES = main data Serializer
+FILES = main Serializer
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))

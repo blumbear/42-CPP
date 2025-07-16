@@ -1,22 +1,27 @@
 #pragma once
 
-#include "Data.hpp"
-#include <cstdint>
 #include <iostream>
+#include <stdint.h>
+
+struct Data {
+	int _value;
+	std::string _name;
+};
 
 class Serializer {
-	protected:
-		Serializer();
-		Serializer(const Serializer &other);
-
-	public:
+	private:
 	/* ================= Canonical Form ================= */
 
+		Serializer();
+		Serializer(const Serializer &other);
 		~Serializer();
 		Serializer &operator=(const Serializer &other);
 
+		
+	public:
+		
 	/* ================= Member Function ================= */
 
-		uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
