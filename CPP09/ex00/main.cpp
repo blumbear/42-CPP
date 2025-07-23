@@ -50,8 +50,8 @@ std::map<std::string, float> parseDb() {
 	return (DB);
 }
 
-float findDate(std::map<std::string, float> DB) {
-	
+float findDate(std::map<std::string, float> DB, std::string date) {
+	//cherche une date et renvoi la valeur du btc à cette dernière
 }
 
 void printLineResult(std::string date, float value, std::map<std::string, float> DB) {
@@ -62,6 +62,7 @@ void printLineResult(std::string date, float value, std::map<std::string, float>
 
 	if (sepPos == std::string::npos)
 		throw false;
+	// faire une fonction qui vérifie le format de la date et l'implémenter dans le parse de la data
 	year = atoi(date.substr(0, sepPos).c_str());
 	day = date.find_last_of(DATE_DELIMITER);
 	month = atoi(date.substr(sepPos + 1, day).c_str());
@@ -69,7 +70,7 @@ void printLineResult(std::string date, float value, std::map<std::string, float>
 	day = atoi(date.substr(sepPos + 1).c_str());
 	if (day < 1 || day > 31 || (BISEXTILE(year) && month == 2 && day > 29) || (!BISEXTILE(year)) && month == 2 && day > 28)
 		throw false;
-	std::cout << date << " => " << value << " = " << findDate(DB) ;
+	std::cout << date << " => " << value << " = " << findDate(DB, date) * value;
 }
 
 bool parse(char *_file) {
