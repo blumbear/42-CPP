@@ -10,7 +10,7 @@ OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = FormUpMaggots!
+NAME = AtLeastThisBeatsCoffeeMaking
 
 all : $(NAME)
 

@@ -1,14 +1,14 @@
 
-FILES = main
+FILES = main 
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))
 OBJS =  $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-NAME = convert
+NAME = btc
 
 all : $(NAME)
 
