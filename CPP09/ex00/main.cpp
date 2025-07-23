@@ -7,6 +7,19 @@ void	printDb(std::map<std::string, float> DB) {
 	}
 }
 
+bool formatCheck(std::string date) {
+	if (date[4] != '-' || date[7] != '-')
+		return (false);
+	for (int i = 0; date[i]; i++) {
+		if (isdigit(date[i]) == false && i != 4 && i != 7){
+			return (false);
+		if (i > 10) {
+			return (false);}
+		}
+	}
+	return (true);
+}
+
 std::map<std::string, float> parseDb() {
 	std::ifstream	file(DATA_BASE);
 	std::string	line;
@@ -31,7 +44,9 @@ std::map<std::string, float> parseDb() {
 				std::cerr << ERROR_FLAG << INPUT_ERROR << line << std::endl;
 				throw false;
 			}
-
+			if (formatCheck(date) == false) {
+				std::cout << date << std::endl;
+				throw false;}
 			int year = 0;
 			int month = 0;
 			int day = 0;
@@ -51,26 +66,49 @@ std::map<std::string, float> parseDb() {
 }
 
 float findDate(std::map<std::string, float> DB, std::string date) {
-	//cherche une date et renvoi la valeur du btc à cette dernière
+	std::map<std::string, float>::iterator it = DB.find(date);
+	if (it != DB.end()){
+		return (it->second);}
+
+	bool test = false;
+	it = DB.begin();
+	while (it != DB.end()) {
+		if (it->first.compare(0, 8, date, 0, 8) == 0 && test == false) {
+			test = true;
+			break;
+		}
+		it++;
+	}
+	if (test == true) {
+		while (it->first.compare(8, 10, date, 8, 10) < 0)
+			it++;
+		return (it->second);
+	}
+	return (0);
 }
 
 void printLineResult(std::string date, float value, std::map<std::string, float> DB) {
 	int year = 0;
 	int month = 0;
 	int day = 0;
-	size_t sepPos = date.find(DATA_DELIMITER);
-
+	size_t sepPos = date.find(DATE_DELIMITER);
+	(void)value;
+	(void)DB;
+	if (formatCheck(date) == false)
+		throw false;
 	if (sepPos == std::string::npos)
 		throw false;
-	// faire une fonction qui vérifie le format de la date et l'implémenter dans le parse de la data
 	year = atoi(date.substr(0, sepPos).c_str());
 	day = date.find_last_of(DATE_DELIMITER);
 	month = atoi(date.substr(sepPos + 1, day).c_str());
 	sepPos = day;
+	(void)month;
+	(void)year;
 	day = atoi(date.substr(sepPos + 1).c_str());
-	if (day < 1 || day > 31 || (BISEXTILE(year) && month == 2 && day > 29) || (!BISEXTILE(year)) && month == 2 && day > 28)
+	if (day < 1 || day > 31 || (month == 2 && day > 28) || (BISEXTILE(year) && month == 2 && day > 29))
 		throw false;
-	std::cout << date << " => " << value << " = " << findDate(DB, date) * value;
+	std::cout << date << " => " << value << " = " << findDate(DB, date) * value << std::endl;
+	return ;
 }
 
 bool parse(char *_file) {
@@ -96,6 +134,7 @@ bool parse(char *_file) {
 		size_t sepPos = line.find(INPUT_DELIMITER);
 		if (sepPos != std::string::npos) {
 			std::string date = line.substr(0, sepPos);
+			date.resize(10);
 			std::stringstream ss(line.substr(sepPos + 1));
 
 			float value;
@@ -108,7 +147,7 @@ bool parse(char *_file) {
 			else {
 				try { printLineResult(date, value, DB); }
 				catch(bool e) {
-					std::cout << ERROR_FLAG << INPUT_ERROR << line << std::endl;
+					std::cout << ERROR_FLAG << "kk" <<  INPUT_ERROR << line << std::endl;
 				}
 			}
 		}
