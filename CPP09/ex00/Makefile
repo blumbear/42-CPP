@@ -1,5 +1,5 @@
 
-FILES = main 
+FILES = main BitcoinExchange
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))
@@ -25,7 +25,7 @@ clean :
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) .gdb_history
 
 re : fclean
 	make

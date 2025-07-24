@@ -23,3 +23,5 @@
 #define VALUETOOLOW_ERROR "not a positive number."
 #define VALUETOOHIGHT_ERROR "number greater than 1000."
 #define DBPARSE_ERROR "Failed to parse the database."
+
+bool parse(char *_file);
