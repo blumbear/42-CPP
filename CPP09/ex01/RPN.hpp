@@ -16,7 +16,7 @@
 #define OP_ERROR "Needed a space between two operator."
 #define SPACE_ERROR "Too many spaces between value or operator, or space before the first number."
 #define STACK_ERROR "Not Enough Value in the stack to use the operator."
-
+#define EMPTY_LINE_ERROR "The line is empty."
 
 class RPN {
 	private :

@@ -53,6 +53,10 @@ int main(int ac, char **av) {
 		std::cerr << ERROR_FLAG << USAGE_ERROR << std::endl;
 		return (EXIT_SUCCESS);
 	}
+	if (!av[1] || !av[1][0]){
+		std::cerr << ERROR_FLAG << EMPTY_LINE_ERROR << std::endl;
+		return (EXIT_SUCCESS);
+	}
 	if (parse(av[1]) == false)
 		return (EXIT_SUCCESS);
 	
