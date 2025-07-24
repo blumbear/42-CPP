@@ -15,7 +15,7 @@
 #define DATE_DELIMITER "-"
 #define DATA_BASE "data.csv"
 
-#define ERROR_FLAG "Error: "
+#define ERROR_PROMPT "Error: "
 
 #define USAGE_ERROR "Usage: ./btc <filename>."
 #define FILE_ERROR "Could not open file."

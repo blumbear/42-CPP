@@ -2,7 +2,7 @@
 
 int main(int ac, char **av) {
 	if (ac != 2) {
-		std::cerr << ERROR_FLAG<< USAGE_ERROR << std::endl;
+		std::cerr << ERROR_PROMPT<< USAGE_ERROR << std::endl;
 		return (EXIT_SUCCESS);
 	}
 	if (parse(av[1]) == false) {

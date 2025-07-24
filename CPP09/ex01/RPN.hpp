@@ -8,7 +8,7 @@
 
 #define OPERATOR "+-/*"
 
-#define ERROR_FLAG "Error: "
+#define ERROR_PROMPT "Error: "
 
 #define USAGE_ERROR "Usage: ./RPN <operation in RPN>."
 #define CHAR_ERROR " is not an operator or a number."

@@ -41,7 +41,7 @@ std::map<std::string, float> parseDb() {
 
 			float value;
 			if (!(ss >> value)) {
-				std::cerr << ERROR_FLAG << INPUT_ERROR << line << std::endl;
+				std::cerr << ERROR_PROMPT << INPUT_ERROR << line << std::endl;
 				throw false;
 			}
 			if (formatCheck(date) == false) {
@@ -120,11 +120,11 @@ bool parse(char *_file) {
 		DB = parseDb();
 	}
 	catch (bool e) {
-		std::cerr << ERROR_FLAG << DBPARSE_ERROR << std::endl;
+		std::cerr << ERROR_PROMPT << DBPARSE_ERROR << std::endl;
 		return (false);
 	}
 	if (file.is_open() == false) {
-		std::cerr << ERROR_FLAG << FILE_ERROR << std::endl;
+		std::cerr << ERROR_PROMPT << FILE_ERROR << std::endl;
 		return (false);
 	}
 
@@ -139,20 +139,20 @@ bool parse(char *_file) {
 
 			float value;
 			if (!(ss >> value))
-				std::cout << ERROR_FLAG << INPUT_ERROR << line << std::endl;
+				std::cout << ERROR_PROMPT << INPUT_ERROR << line << std::endl;
 			else if (value < 0)
-				std::cout << ERROR_FLAG << VALUETOOLOW_ERROR << std::endl;
+				std::cout << ERROR_PROMPT << VALUETOOLOW_ERROR << std::endl;
 			else if (value > 1000)
-				std::cout << ERROR_FLAG << VALUETOOHIGHT_ERROR << std::endl;
+				std::cout << ERROR_PROMPT << VALUETOOHIGHT_ERROR << std::endl;
 			else {
 				try { printLineResult(date, value, DB); }
 				catch(bool e) {
-					std::cout << ERROR_FLAG <<  INPUT_ERROR << line << std::endl;
+					std::cout << ERROR_PROMPT <<  INPUT_ERROR << line << std::endl;
 				}
 			}
 		}
 		else {
-			std::cout << ERROR_FLAG << INPUT_ERROR << line << std::endl;
+			std::cout << ERROR_PROMPT << INPUT_ERROR << line << std::endl;
 		}
 	}
 	return (true);
