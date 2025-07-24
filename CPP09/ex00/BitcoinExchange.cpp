@@ -120,11 +120,11 @@ bool parse(char *_file) {
 		DB = parseDb();
 	}
 	catch (bool e) {
-		std::cout << ERROR_FLAG << DBPARSE_ERROR << std::endl;
+		std::cerr << ERROR_FLAG << DBPARSE_ERROR << std::endl;
 		return (false);
 	}
 	if (file.is_open() == false) {
-		std::cout << ERROR_FLAG << FILE_ERROR << std::endl;
+		std::cerr << ERROR_FLAG << FILE_ERROR << std::endl;
 		return (false);
 	}
 
@@ -139,7 +139,7 @@ bool parse(char *_file) {
 
 			float value;
 			if (!(ss >> value))
-				std::cerr << ERROR_FLAG << INPUT_ERROR << line << std::endl;
+				std::cout << ERROR_FLAG << INPUT_ERROR << line << std::endl;
 			else if (value < 0)
 				std::cout << ERROR_FLAG << VALUETOOLOW_ERROR << std::endl;
 			else if (value > 1000)
@@ -147,7 +147,7 @@ bool parse(char *_file) {
 			else {
 				try { printLineResult(date, value, DB); }
 				catch(bool e) {
-					std::cout << ERROR_FLAG << "kk" <<  INPUT_ERROR << line << std::endl;
+					std::cout << ERROR_FLAG <<  INPUT_ERROR << line << std::endl;
 				}
 			}
 		}
