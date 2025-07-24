@@ -6,6 +6,10 @@ const char* RPN::NotEnoughValueInStack::what() const throw() {
 	return (STACK_ERROR);
 }
 
+const char* RPN::DivideBy0::what() const throw() {
+	return (DIVIDE_0_ERROR);
+}
+
 /* ================= Canonical Form ================= */
 
 RPN::RPN() : _stackSize(0) {}
@@ -68,6 +72,8 @@ void RPN::divide(){
 		throw (NotEnoughValueInStack());
 	_stackSize--;
 	_stack.pop();
+	if (tmp == 0 || _stack.top())
+		throw DivideBy0();
 	_stack.top() /= tmp;
 }
 

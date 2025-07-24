@@ -17,6 +17,7 @@
 #define SPACE_ERROR "Too many spaces between value or operator, or space before the first number."
 #define STACK_ERROR "Not Enough Value in the stack to use the operator."
 #define EMPTY_LINE_ERROR "The line is empty."
+#define DIVIDE_0_ERROR "Zero cant be divided or cant divide."
 
 class RPN {
 	private :
@@ -28,6 +29,10 @@ class RPN {
 /* ================ Exception Handler ================ */
 
 		class NotEnoughValueInStack: public std::exception {
+			public :
+				const char* what() const throw();
+		};
+		class DivideBy0: public std::exception {
 			public :
 				const char* what() const throw();
 		};
