@@ -21,6 +21,10 @@ obj/%.o: %.cpp
 $(OBJ_DIR):
 	mkdir $@
 
+test :
+	make
+	./test.sh
+
 clean :
 	rm -rf $(OBJ_DIR)
 
