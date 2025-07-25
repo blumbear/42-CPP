@@ -16,65 +16,67 @@ std::vector<int> MergeInsertSort::sortVector(std::vector<int> container) {
 	}
 	else if (containerSize == 1)
 		return (container);
-	for (size_t i = 0; i <= containerSize / 2 + (containerSize % 2 == 1) - 1; i++) 
+	for (size_t i = 0; i <= containerSize / 2 + (containerSize % 2 == 1) - 1; i++)
 		tmp.push_back(container[i]);
-	// tmp = sortVector(tmp);
+	tmp = sortVector(tmp);
+	std::cout << "tmp :";printVector(tmp);
 	for (size_t i = containerSize / 2 - (containerSize % 2 == 0) + 1; i < containerSize; i++)
 		tmpbis.push_back(container[i]);
+	tmpbis = sortVector(tmpbis);
+	std::cout << "tmpbis :";printVector(tmpbis);
 	container.clear();
-	// tmpbis = sortVector(tmpbis);
 
 	for (size_t i = 0 ; i < tmp.size(); i++) {container.push_back(tmp[i]);}
 	std::vector<int>::iterator it;
-	printVector(container);
-	printVector(tmpbis);
+	// printVector(container);
+	// printVector(tmpbis);
 	for (size_t i = 0 ; i < tmpbis.size(); i++) {
 
 		size_t tmp = container.size();
 		size_t startPos = 0;
 
-		std::cout << "-------\n";
-		printVector(container); std::cout << "size : " << tmp << std::endl;
+		// std::cout << "-------\n";
+		// printVector(container); std::cout << "size : " << tmp << std::endl;
 		while (true) {
-			std::cout << "tmp : " << tmp << std::endl;
+			// std::cout << "tmp : " << tmp << std::endl;
 			if (tmp == 1) {
 				if (tmpbis[i] < container[startPos])
 					container.insert(container.begin() + startPos , tmpbis[i]);
 				else if (tmpbis[i] > container[startPos])
 					container.insert(container.begin() + startPos + 1 , tmpbis[i]);
-				std::cout << "A!" <<tmpbis[i]<<"!\n" ;
+				// std::cout << "A!" <<tmpbis[i]<<"!\n" ;
 				break;
 			}
 			else if (tmp == 2) {
 				if (tmpbis[i] < container[startPos])
 					container.insert(container.begin() + startPos , tmpbis[i]);
 				else if (tmpbis[i] > container[startPos] && tmpbis[i] < container[startPos + 1])
-					container.insert(container.begin() + startPos + tmp , tmpbis[i]);
+					container.insert(container.begin() + startPos + 1 , tmpbis[i]);
 				else if (tmpbis[i] > container[startPos + 1])
-					container.insert(container.begin() + startPos + tmp, tmpbis[i]);
-				std::cout << "B!" <<tmpbis[i]<<"!\n" ;
+					container.insert(container.begin() + startPos + 2, tmpbis[i]);
+				// std::cout << "B!" <<tmpbis[i]<<"!\n" ;
 				break;
 			}
 			if (tmp % 2 == 0) {
 				tmp = tmp / 2 + (tmp % 2 == 1);
 				if (tmpbis[i] > container[startPos + tmp] && tmpbis[i] < container[startPos + tmp + 1]) {
 					container.insert(container.begin() + startPos + tmp + 1, tmpbis[i]);
-					std::cout << "C!" <<tmpbis[i]<<"!\n" ;
+					// std::cout << "C!" <<tmpbis[i]<<"!\n" ;
 					break;
 				}
 				else if (tmpbis[i] > container[startPos + tmp]){
 					startPos += tmp;
 				}
-				std::cout << "tmpbis[i] : " << tmpbis[i] << " Acontainer[tmp] : " << container[startPos + tmp] << std::endl;
+				// std::cout << "tmpbis[i] : " << tmpbis[i] << " Acontainer[tmp] : " << container[startPos + tmp] << std::endl;
 			}
 			else {
 				tmp = tmp / 2 + (tmp % 2 == 1);
-				std::cout << "tmpbis[i] : " << tmpbis[i] << " Bcontainer[tmp] : " << container[startPos + tmp] << std::endl;
+				// std::cout << "tmpbis[i] : " << tmpbis[i] << " Bcontainer[tmp] : " << container[startPos + tmp] << std::endl;
 				if (tmpbis[i] > container[startPos + tmp]) {
 					startPos += tmp;
 				}
 			}
-			std::cout << "StartPos : " << startPos << std::endl;
+			// std::cout << "StartPos : " << startPos << std::endl;
 		}
 	}
 	return (container);
@@ -105,6 +107,8 @@ MergeInsertSort &MergeInsertSort::operator=(const MergeInsertSort &other) {
 std::vector<int>	MergeInsertSort::getVector() {return _vector;}
 
 std::list<int>	MergeInsertSort::getList() {return _list;}
+
+time_t	MergeInsertSort::getvtime() {return _vtime;}
 
 /* ================= Member Function ================= */
 

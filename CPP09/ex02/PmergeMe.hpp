@@ -32,6 +32,7 @@ class MergeInsertSort {
 
 		std::vector<int>	getVector();
 		std::list<int>	getList();
+		time_t	getvtime();
 
 /* ================= Member Function ================= */
 
