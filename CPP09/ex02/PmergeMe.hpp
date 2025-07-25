@@ -10,21 +10,23 @@
 #define USAGE_ERROR "Usage: ./PmergeMe <n1> <n> <n3> <n4> <n4> ..."
 #define ARG_ERROR "Arguments have to be a positive number."
 
-class Data {
+class MergeInsertSort {
 	private:
 		std::vector<int> _vector;
 		std::list<int> _list;
-		time_t		_ltime;
 		time_t		_vtime;
+		time_t		_ltime;
 		size_t		_containerSize;
+
+		std::vector<int> sortVector(std::vector<int> container);
 	
 	public:
 /* ================= Canonical Form ================= */
 
-		Data();
-		Data(const Data &other);
-		~Data();
-		Data &operator=(const Data &other);
+		MergeInsertSort();
+		MergeInsertSort(const MergeInsertSort &other);
+		~MergeInsertSort();
+		MergeInsertSort &operator=(const MergeInsertSort &other);
 
 /* ===================== Getter ===================== */
 
@@ -34,6 +36,8 @@ class Data {
 /* ================= Member Function ================= */
 
 		void	printVector();
+		void	printVector(std::vector<int> container);
 		void	printList();
 		void	parse(char **array);
+		void	compute();
 };
