@@ -28,7 +28,7 @@ class PresidentialPardonForm : public AForm {
 
 /* ================= Canonical AForm ================= */
 
-		PresidentialPardonForm(const std::string& target = "", const int signGrade = 25, const int execGrade = 5);
+		PresidentialPardonForm(const std::string& target = "");
 		PresidentialPardonForm(const PresidentialPardonForm &other);
 		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
