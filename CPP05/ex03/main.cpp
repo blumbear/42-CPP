@@ -18,9 +18,9 @@ int main()
 	};
 
 	const Test tabTest[] = {
-		{ "shrubbery creation", "bonjour_a_tous" },
-		{ "robotomy request", "Bender" },
-		{ "presidential pardon", "Zaphod" },
+		{ "ShrubberyCreation", "bonjour_a_tous" },
+		{ "RobotomyRequest", "Bender" },
+		{ "PresidentialPardon", "Zaphod" },
 		{ "invalid form", "Problems" } // erreur ici
 	};
 
