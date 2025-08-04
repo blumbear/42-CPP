@@ -35,7 +35,7 @@ AForm* Intern::makeForm(const std::string &form, const std::string &target) cons
 
 	for (int i = 0; i < 3 ; i++) {
 		if (form == formTab[i]._form) {
-			std::cout << "Intern creates" << form << std::endl;
+			std::cout << "Intern creates " << form << std::endl;
 			return formTab[i].caller(target);}
 	}
 	std::cout << "Error: Form type " << form << " doesn't match" << std::endl;
