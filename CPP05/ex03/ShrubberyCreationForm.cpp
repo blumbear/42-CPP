@@ -10,8 +10,8 @@ const char* ShrubberyCreationForm::FormIsNotSignedException::what() const throw(
 
 /* ================= Canonical AForm ================= */
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target, const int signGrade, const int execGrade) :
-AForm(target, signGrade, execGrade), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) :
+AForm(target, 145, 137), _target(target)
 {
 	std::cout << "SCF Constructor Called |" << std::endl;
 	if (getSignGrade() > 145)

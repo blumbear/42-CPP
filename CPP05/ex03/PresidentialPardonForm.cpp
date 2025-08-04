@@ -10,8 +10,8 @@ const char* PresidentialPardonForm::FormIsNotSignedException::what() const throw
 
 /* ================= Canonical AForm ================= */
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target, const int signGrade, const int execGrade) :
-AForm(target, signGrade, execGrade), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) :
+AForm(target, 25, 5), _target(target)
 {
 	std::cout << "PPF Constructor Called |" << std::endl;
 	if (getSignGrade() > 25)

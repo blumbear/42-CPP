@@ -30,7 +30,7 @@ class ShrubberyCreationForm : public AForm {
 
 /* ================= Canonical AForm ================= */
 
-		ShrubberyCreationForm(const std::string& target = "", const int signGrade = 25, const int execGrade = 5);
+		ShrubberyCreationForm(const std::string& target = "");
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);

@@ -12,8 +12,8 @@ const char* RobotomyRequestForm::FormIsNotSignedException::what() const throw() 
 
 /* ================= Canonical AForm ================= */
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target, const int signGrade, const int execGrade) :
-AForm(target, signGrade, execGrade), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) :
+AForm(target, 72, 45), _target(target)
 {
 	std::cout << "RRF Constructor Called |" << std::endl;
 	if (getSignGrade() > 72)

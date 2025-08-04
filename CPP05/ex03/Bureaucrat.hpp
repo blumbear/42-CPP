@@ -26,7 +26,7 @@ class Bureaucrat {
 
 		Bureaucrat(const std::string name, int grade);
 
-/* ================= Canonical Form ================= */
+/* ================= Canonical AForm ================= */
 
 		Bureaucrat();
 		Bureaucrat(const Bureaucrat &other);
