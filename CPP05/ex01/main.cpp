@@ -11,11 +11,6 @@ int main() {
 		Michel.signForm(Alternance);
 		std::cout << std::endl;
 
-		for (int i = 0 ; i < 8 ; i++)
-			Michel.incrementGrade();
-		std::cout << std::endl;
-
-		Michel.signForm(Alternance);
 		Laure.signForm(Stage);
 		std::cout << std::endl;
 
