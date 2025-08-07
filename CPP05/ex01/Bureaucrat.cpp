@@ -3,7 +3,7 @@
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return ("Bureaucrat::The grade is too high.");}
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Bureaucrat::The grade is too law.");}
+const char* Bureaucrat::GradeTooLowException::what() const throw() {return ("Bureaucrat::The grade is too low.");}
 
 /* ================== Constructor ================== */
 
