@@ -4,7 +4,6 @@
 #include "AForm.hpp"
 #include <iostream>
 #include <fstream>
-using namespace std;
 
 class Bureaucrat;
 class AForm;
