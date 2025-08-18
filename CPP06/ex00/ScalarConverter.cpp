@@ -14,12 +14,12 @@ struct ValueTab {
 void	resultPrinter(ValueTab valueTab) {
 	// Char's Prompt
 	std::cout << "char: ";
-	if (valueTab.i >= 32 && valueTab.i <= 126)
+	if (valueTab.printable == false)
+		std::cout << "impossible";
+	else if (valueTab.i >= 32 && valueTab.i <= 126)
 		std::cout << "'" << static_cast<char>(valueTab.i) << "'";
 	else if (!(valueTab.i >= 32 && valueTab.i <= 126))
 		std::cout << "Non displayable";
-	else
-		std::cout << "impossible";
 	std::cout << std::endl;
 
 	// Int's Prompts 
