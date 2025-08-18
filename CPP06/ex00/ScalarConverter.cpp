@@ -5,9 +5,9 @@
 struct ValueTab {
 	std::string str;
 	int i;
-	bool printable;
 	float f;
 	double d;
+	bool printable;
 	bool pseudoLitt; // -inff, +inff, and nanf, needed to custom prompt
 };
 
