@@ -9,14 +9,14 @@
 
 class ScalarConverter {
 	private :
-		
-	public :
 	/* ================= Canonical Form ================= */
 
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &other);
 		~ScalarConverter();
 		ScalarConverter &operator=(const ScalarConverter &other);
+		
+	public :
 
 	/* ================= Member FUnction ================= */
 
