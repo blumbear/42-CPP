@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip> // for fixed and setprecision
 #include <sstream> // for stringstream type
 #include <cctype> // for isdigit
 #include <cmath> // for std::floor

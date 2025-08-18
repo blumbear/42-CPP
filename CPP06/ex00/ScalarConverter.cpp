@@ -3,54 +3,50 @@
 /* ===================== Utils ===================== */
 
 struct ValueTab {
+	std::string str;
 	int i;
+	bool printable;
 	float f;
 	double d;
-	bool bi;
-	bool bf;
-	bool bd;
-	bool nan; // Not a Number, needed to custom prompt
+	bool pseudoLitt; // -inff, +inff, and nanf, needed to custom prompt
 };
 
 void	resultPrinter(ValueTab valueTab) {
 	// Char's Prompt
 	std::cout << "char: ";
-	if (valueTab.bi == false)
-		std::cout << "impossible";
-	else if (valueTab.i >= 32 && valueTab.i <= 126)
+	if (valueTab.i >= 32 && valueTab.i <= 126)
 		std::cout << "'" << static_cast<char>(valueTab.i) << "'";
-	else 
+	else if (!(valueTab.i >= 32 && valueTab.i <= 126))
 		std::cout << "Non displayable";
+	else
+		std::cout << "impossible";
 	std::cout << std::endl;
 
 	// Int's Prompts 
 	std::cout << "int: ";
-	if (valueTab.bi == false)
+	if (valueTab.printable == false)
 		std::cout << "impossible";
 	else 
 		std::cout << valueTab.i;
 	std::cout << std::endl;
 
+	std::cout << std::fixed << std::setprecision(1);
 	// Float's Prompts 
 	std::cout << "float: ";
-	if (valueTab.bf == false && valueTab.nan == false)
+	if (valueTab.printable == false && valueTab.pseudoLitt == false)
 		std::cout << "impossible";
-	else if (valueTab.nan == true)
-		std::cout << "nan" << 'f';
-	else if (valueTab.f == std::floor(valueTab.f))
-		std::cout << valueTab.f << ".0" << 'f';
+	else if (valueTab.pseudoLitt == true)
+		std::cout << valueTab.str << 'f';
 	else
 		std::cout << valueTab.f << 'f';
 	std::cout << std::endl;
 
 	// Double's Prompts 
 	std::cout << "double: ";
-	if (valueTab.bd == false && valueTab.nan == false)
+	if (valueTab.printable == false && valueTab.pseudoLitt == false)
 		std::cout << "impossible";
-	else if (valueTab.nan == true)
-		std::cout << "nan";
-	else if (valueTab.d == std::floor(valueTab.d))
-		std::cout << valueTab.d << ".0";
+	else if (valueTab.pseudoLitt == true)
+		std::cout << valueTab.str;
 	else
 		std::cout << valueTab.d;
 	std::cout << std::endl;
@@ -80,25 +76,21 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 /* ================= Member FUnction ================= */
 
 void ScalarConverter::convert(const std::string str) {
-	ValueTab valueTab;
-	std::stringstream tmp(str);
-	std::stringstream tmpb(str);
-	std::stringstream tmpt(str);
+	ValueTab tab;
 
-	tmp >> valueTab.d;
-	tmpb >> valueTab.f;
-	tmpt >> valueTab.i;
-	valueTab.bi = false;
-	valueTab.bf = false;
-	valueTab.bd = false;
+	std::stringstream ss(str);
+	ss >> tab.d;
 
-	if (str == "nan") {
-		valueTab.nan = true;
-	 }
-	else if (isdigit(str[0]) == true) {
-		valueTab.bi = true;
-		valueTab.bf = true;
-		valueTab.bd = true; }
-	resultPrinter(valueTab);
+	tab.pseudoLitt = false;
+	if (ss.fail()) {
+		if (str == "nan" || str == "-inf" || str == "+inf")
+			tab.pseudoLitt = true;
+	} else
+		tab.printable = true;
+
+	tab.str = str;
+	tab.i = static_cast<int>(tab.d);
+	tab.f = static_cast<float>(tab.d);
+
+	resultPrinter(tab);
 }
-
