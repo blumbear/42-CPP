@@ -85,7 +85,7 @@ void ScalarConverter::convert(const std::string str) {
 	if (ss.fail()) {
 		if (str == "nan" || str == "-inf" || str == "+inf")
 			tab.pseudoLitt = true;
-		else if (str[0]) {
+		else if (str[0] && str.size() == 1) {
 			tab.d = static_cast<double>(str[0]);
 			tab.printable = true;
 		}
