@@ -1,5 +1,5 @@
 
-FILES = main ScalarConverter
+FILES = main
 
 OBJ_DIR = obj/
 SRCS =  $(addsuffix .cpp, $(FILES))
