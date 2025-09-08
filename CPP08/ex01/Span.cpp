@@ -43,17 +43,24 @@ void Span::addNumber(int start, int end) {
 }
 
 int Span::shortestSpan() {
-	int tmp = _container.front();
-	for (std::list<int>::iterator it = _container.begin(); it != _container.end(); ++it) {
-		if (*it < tmp) tmp = *it;
+	if (_container.size() < 2)
+		throw NotEnoughNumber();
+	std::vector<int> tmp(_container);
+	std::sort(tmp.begin(), tmp.end());
+	int res = tmp[1] - tmp[0];
+	for (size_t i = 0; i < tmp.size() - 1; i++) {
+		if (tmp[i + 1] - tmp[i] <= res)
+			res = tmp[i + 1] - tmp[i];
 	}
-	return (tmp);
+	return (res);
 }
 
 int Span::longestSpan() {
-	int tmp = _container.front();
-	for (std::list<int>::iterator it = _container.begin(); it != _container.end(); ++it) {
-		if (*it > tmp) tmp = *it;
-	}
-	return (tmp);
+	if (_container.size() < 2)
+		throw NotEnoughNumber();
+	std::vector<int> tmp(_container);
+	std::sort(tmp.begin(), tmp.end());
+	int min = *std::min_element(tmp.begin(), tmp.end());
+	int max = *std::max_element(tmp.begin(), tmp.end());
+	return (max - min);
 }

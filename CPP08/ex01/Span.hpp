@@ -1,9 +1,10 @@
 #pragma once
 
 #include <exception>
-#include <list>
+#include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 class numberCantBeAdded : public std::exception {
 public:
@@ -19,7 +20,7 @@ public:
 
 class Span {
 	private :
-		std::list<int>	_container;
+		std::vector<int>	_container;
 		unsigned int	_n;
 
 	public :

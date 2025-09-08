@@ -11,24 +11,32 @@ int main(int ac, char **av) {
 	}
 	if (av[1][0] == 'a') {
 		Span container=Span();
-		for (int i = 0; i < 11111; i++) {
+		for (int i = 0; i < 1111; i++) {
 			try {
-				container.addNumber(std::time(0));}
+				container.addNumber(i);}
 			catch (std::exception &e){
 				std::cerr << e.what() << std::endl;
-				break;
+				return 0;
 			}
+		}
+		try {
+			container.addNumber(50000);
+		} catch (std::exception &e){
+			std::cerr << e.what() << std::endl;
+			return 0;
 		}
 		try {
 			std::cout << container.longestSpan() << std::endl;}
 		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
+			return 0;
 		}
 		
 		try {
 			std::cout << container.shortestSpan() << std::endl;}
 		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
+			return 0;
 		}
 	}
 	else if (av[1][0] == 'b') {
@@ -38,12 +46,14 @@ int main(int ac, char **av) {
 			std::cout << container.longestSpan() << std::endl;}
 		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
+			return 0;
 		}
 
 		try {
 			std::cout << container.shortestSpan() << std::endl;}
 		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
+			return 0;
 		}
 	}
 	
