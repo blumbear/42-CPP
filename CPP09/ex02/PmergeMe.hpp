@@ -1,9 +1,10 @@
 #include <string>
 #include <iostream>
+#include <deque>
 #include <vector>
-#include <list>
 #include <cstdlib>
-#include <ctime>
+#include <iomanip>
+#include <sys/time.h>
 
 #define ERROR_PROMPT "Error: "
 
@@ -13,13 +14,47 @@
 class MergeInsertSort {
 	private:
 		std::vector<int> _vector;
-		std::list<int> _list;
-		time_t		_vtime;
-		time_t		_ltime;
+		std::deque<int> _deque;
+		double		_vtime;
+		double		_dtime;
 		size_t		_containerSize;
 
-		std::vector<int> sortVector(std::vector<int> container);
+		template <typename T>
+		T sortVector(T container) {
+			T big;
+			T small;
+			size_t i = 0;
+			while (i < container.size() - 1) {
+				if (container[i] < container[i + 1]) { 
+					small.push_back(container[i]);
+					big.push_back(container[i + 1]);
+				} else {
+					big.push_back(container[i]);
+					small.push_back(container[i + 1]);
+				}
+				i += 2;
+			}
+			if (i < container.size())
+				small.push_back(container[i]);
+			i = 0;
+			if (big.size() > 2)
+				big = sortVector(big);
+			for (size_t i = 0; i < small.size(); i++) {
+				size_t j = 0;
+				while (big[j] < small[i]) j++;
+				big.insert(big.begin() + j, small[i]);
+			}
+			return (big);
+		}
 	
+	template <typename T>
+	bool isSorted(T& v) {
+	for (size_t i = 1; i < v.size(); ++i) {
+		if (v[i - 1] > v[i])
+			return false;
+	}
+	return true;
+}
 	public:
 /* ================= Canonical Form ================= */
 
@@ -31,8 +66,9 @@ class MergeInsertSort {
 /* ===================== Getter ===================== */
 
 		std::vector<int>	getVector();
-		std::list<int>	getList();
-		time_t	getvtime();
+		std::deque<int>	getList();
+		double	getvtime();
+		double	getdtime();
 
 /* ================= Member Function ================= */
 

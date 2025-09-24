@@ -8,13 +8,13 @@ int main(int ac, char **av) {
 	}
 	try {
 		data.parse(++av);
-		std::cout << "------ Before Compute ------" << std::endl;
+		std::cout << "Before :";
 		data.printVector();
-		data.printList();
 		data.compute();
-		std::cout << "------ After Compute ------" << std::endl;
+		std::cout << "After: ";
 		data.printVector();
-		data.printList();
+		std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " << std::fixed<< std::setprecision(5) << data.getvtime() << " us" << std::endl;
+		std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " << std::fixed<< std::setprecision(5) << data.getdtime() << " us" << std::endl;
 
 	} catch (bool e) {
 		return (EXIT_SUCCESS);

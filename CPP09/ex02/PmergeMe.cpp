@@ -1,91 +1,11 @@
 #include "PmergeMe.hpp"
+#include <algorithm>
 
 /* ============= Private Member Function ============= */
-std::vector<int> MergeInsertSort::sortVector(std::vector<int> container) {
-	std::vector<int> tmp;
-	std::vector<int> tmpbis;
-	size_t containerSize = container.size();
-
-	if (containerSize == 2) {
-		if (container[0] > container[1]) {
-			int itmp = container[0];
-			container[0] = container[1];
-			container[1] = itmp;
-		}
-		return (container);
-	}
-	else if (containerSize == 1)
-		return (container);
-	for (size_t i = 0; i <= containerSize / 2 + (containerSize % 2 == 1) - 1; i++)
-		tmp.push_back(container[i]);
-	tmp = sortVector(tmp);
-	std::cout << "tmp :";printVector(tmp);
-	for (size_t i = containerSize / 2 - (containerSize % 2 == 0) + 1; i < containerSize; i++)
-		tmpbis.push_back(container[i]);
-	tmpbis = sortVector(tmpbis);
-	std::cout << "tmpbis :";printVector(tmpbis);
-	container.clear();
-
-	for (size_t i = 0 ; i < tmp.size(); i++) {container.push_back(tmp[i]);}
-	std::vector<int>::iterator it;
-	// printVector(container);
-	// printVector(tmpbis);
-	for (size_t i = 0 ; i < tmpbis.size(); i++) {
-
-		size_t tmp = container.size();
-		size_t startPos = 0;
-
-		// std::cout << "-------\n";
-		// printVector(container); std::cout << "size : " << tmp << std::endl;
-		while (true) {
-			// std::cout << "tmp : " << tmp << std::endl;
-			if (tmp == 1) {
-				if (tmpbis[i] < container[startPos])
-					container.insert(container.begin() + startPos , tmpbis[i]);
-				else if (tmpbis[i] > container[startPos])
-					container.insert(container.begin() + startPos + 1 , tmpbis[i]);
-				// std::cout << "A!" <<tmpbis[i]<<"!\n" ;
-				break;
-			}
-			else if (tmp == 2) {
-				if (tmpbis[i] < container[startPos])
-					container.insert(container.begin() + startPos , tmpbis[i]);
-				else if (tmpbis[i] > container[startPos] && tmpbis[i] < container[startPos + 1])
-					container.insert(container.begin() + startPos + 1 , tmpbis[i]);
-				else if (tmpbis[i] > container[startPos + 1])
-					container.insert(container.begin() + startPos + 2, tmpbis[i]);
-				// std::cout << "B!" <<tmpbis[i]<<"!\n" ;
-				break;
-			}
-			if (tmp % 2 == 0) {
-				tmp = tmp / 2 + (tmp % 2 == 1);
-				if (tmpbis[i] > container[startPos + tmp] && tmpbis[i] < container[startPos + tmp + 1]) {
-					container.insert(container.begin() + startPos + tmp + 1, tmpbis[i]);
-					// std::cout << "C!" <<tmpbis[i]<<"!\n" ;
-					break;
-				}
-				else if (tmpbis[i] > container[startPos + tmp]){
-					startPos += tmp;
-				}
-				// std::cout << "tmpbis[i] : " << tmpbis[i] << " Acontainer[tmp] : " << container[startPos + tmp] << std::endl;
-			}
-			else {
-				tmp = tmp / 2 + (tmp % 2 == 1);
-				// std::cout << "tmpbis[i] : " << tmpbis[i] << " Bcontainer[tmp] : " << container[startPos + tmp] << std::endl;
-				if (tmpbis[i] > container[startPos + tmp]) {
-					startPos += tmp;
-				}
-			}
-			// std::cout << "StartPos : " << startPos << std::endl;
-		}
-	}
-	return (container);
-}
-
 
 /* ================= Canonical Form ================= */
 
-MergeInsertSort::MergeInsertSort() : _vtime(0), _ltime(0), _containerSize(0) {}
+MergeInsertSort::MergeInsertSort() : _containerSize(0) {}
 
 MergeInsertSort::MergeInsertSort(const MergeInsertSort &other) {*this = other;}
 
@@ -94,8 +14,8 @@ MergeInsertSort::~MergeInsertSort() {}
 MergeInsertSort &MergeInsertSort::operator=(const MergeInsertSort &other) {
 	if (this != &other) {
 		_vector = other._vector;
-		_list = other._list;
-		_ltime = other._ltime;
+		_deque = other._deque;
+		_dtime = other._dtime;
 		_vtime = other._vtime;
 		_containerSize = other._containerSize;
 	}
@@ -106,9 +26,11 @@ MergeInsertSort &MergeInsertSort::operator=(const MergeInsertSort &other) {
 
 std::vector<int>	MergeInsertSort::getVector() {return _vector;}
 
-std::list<int>	MergeInsertSort::getList() {return _list;}
+std::deque<int>	MergeInsertSort::getList() {return _deque;}
 
-time_t	MergeInsertSort::getvtime() {return _vtime;}
+double	MergeInsertSort::getvtime() {return _vtime;}
+
+double	MergeInsertSort::getdtime() {return _dtime;}
 
 /* ================= Member Function ================= */
 
@@ -135,34 +57,56 @@ void	MergeInsertSort::printVector(std::vector<int> container) {
 }
 
 void	MergeInsertSort::printList() {
-	 for (std::list<int>::iterator it = _list.begin(); it != _list.end(); ++it) {
+	 for (std::deque<int>::iterator it = _deque.begin(); it != _deque.end(); ++it) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
 }
 
 void MergeInsertSort::parse(char **array) {
+	int tmp = 0;
 	for (int i = 0; array[i]; i++) {
+		tmp = atoi(array[i]);
 		for (int j = 0; array[i][j]; j++) {
 			if (!isdigit(array[i][j])) {
 				std::cerr << ERROR_PROMPT << ARG_ERROR << std::endl;
 				throw false;
 			}
+
 		}
-		_vector.push_back(atoi(array[i]));
-		_list.push_back(atoi(array[i]));
+		for (size_t x = 0; x < _vector.size(); x++) {
+			if (_vector[x] == tmp) {
+				std::cout << "Doublon error." << std::endl;
+				throw false;
+			}
+		}
+		_vector.push_back(tmp);
+		_deque.push_back(tmp);
 	}
 }
 
 void MergeInsertSort::compute() {
-	time_t tmp;
+	timeval tmp;
+	timeval tmpb;
 
-	time(&tmp);
+	gettimeofday(&tmp, NULL);
 	_vector = sortVector(_vector);
-	time(&_vtime);
-	_vtime -= tmp;
-	time(&tmp);
-	// _list = sortList(_list);
-	time(&_ltime);
-	_ltime -= tmp;
+	gettimeofday(&tmpb, NULL);
+	_vtime = (tmpb.tv_sec - tmp.tv_sec) * 1000000 + (double)(tmpb.tv_usec - tmp.tv_usec) ;
+	// if (!isSorted(_vector)) {
+	// 	std::cout << "vector is not sort." << std::endl;
+	// 	return ;
+	// }
+	// else 
+	// 	std::cout << "vector is sort." << std::endl;
+	gettimeofday(&tmp, NULL);
+	_deque = sortVector(_deque);
+	gettimeofday(&tmpb, NULL);
+	_dtime = (tmpb.tv_sec - tmp.tv_sec) * 1000000 + (double)(tmpb.tv_usec - tmp.tv_usec) ;
+	// if (!isSorted(_deque)) {
+	// 	std::cout << "deque is not sort." << std::endl;
+	// 	return ;
+	// }
+	// else 
+	// 	std::cout << "deque is sort." << std::endl;
 }
