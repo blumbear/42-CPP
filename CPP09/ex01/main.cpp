@@ -44,7 +44,7 @@ bool parse(std::string line) {
 			return (false);
 		}
 	}
-	calculator.printRes();
+	try {calculator.printRes();} catch (std::exception &e) {std::cout << ERROR_PROMPT << e.what() << std::endl; return (false);}
 	return (true);
 }
 

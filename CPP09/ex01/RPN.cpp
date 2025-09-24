@@ -10,6 +10,10 @@ const char* RPN::DivideBy0::what() const throw() {
 	return (DIVIDE_0_ERROR);
 }
 
+const char* RPN::TooManyValueInStack::what() const throw() {
+	return (TOO_MANY_VALUES);
+}
+
 /* ================= Canonical Form ================= */
 
 RPN::RPN() : _stackSize(0) {}
@@ -72,14 +76,15 @@ void RPN::divide(){
 		throw (NotEnoughValueInStack());
 	_stackSize--;
 	_stack.pop();
-	if (tmp == 0 || _stack.top())
+	if (tmp == 0)
 		throw DivideBy0();
 	_stack.top() /= tmp;
 }
 
 void RPN::printRes() {
 	int tmp = _stack.top();
-	
+	if (_stack.size() > 1)
+		throw TooManyValueInStack();
 	_stack.pop();
 	std::cout << tmp << std::endl;
 }

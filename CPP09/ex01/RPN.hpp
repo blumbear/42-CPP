@@ -18,6 +18,7 @@
 #define STACK_ERROR "Not Enough Value in the stack to use the operator."
 #define EMPTY_LINE_ERROR "The line is empty."
 #define DIVIDE_0_ERROR "Zero cant be divided or cant divide."
+#define TOO_MANY_VALUES "Too many values left in stack."
 
 class RPN {
 	private :
@@ -28,14 +29,9 @@ class RPN {
 
 /* ================ Exception Handler ================ */
 
-		class NotEnoughValueInStack: public std::exception {
-			public :
-				const char* what() const throw();
-		};
-		class DivideBy0: public std::exception {
-			public :
-				const char* what() const throw();
-		};
+		class NotEnoughValueInStack: public std::exception {public :const char* what() const throw();};
+		class DivideBy0: public std::exception {public :const char* what() const throw();};
+		class TooManyValueInStack: public std::exception {public :const char* what() const throw();};
 
 /* ================= Canonical Form ================= */
 
