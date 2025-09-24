@@ -1,8 +1,6 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
 
-/* ============= Private Member Function ============= */
-
 /* ================= Canonical Form ================= */
 
 MergeInsertSort::MergeInsertSort() : _containerSize(0) {}

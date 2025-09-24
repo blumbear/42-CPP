@@ -37,7 +37,7 @@ class MergeInsertSort {
 			if (i < container.size())
 				small.push_back(container[i]);
 			i = 0;
-			if (big.size() > 2)
+			if (big.size() >= 2)
 				big = sortVector(big);
 			for (size_t i = 0; i < small.size(); i++) {
 				size_t j = 0;
