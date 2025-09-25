@@ -70,28 +70,22 @@ double findDate(std::map<std::string, double> DB, std::string date) {
 	if (it != DB.end()){
 		return (it->second);}
 
-	bool test = false;
 	it = DB.begin();
 	while (it != DB.end()) {
-		if (it->first.compare(0, 4, date, 0, 4) == 0) {
-			test = true;
+		if ((atoi(it->first.substr(0,4).c_str()) >= atoi(date.substr(0,4).c_str()))) {
 			break;
 		}
 		it++;
 	}
 
-	if (test == true) {
-		while ((atoi(it->first.substr(5,2).c_str()) < atoi(date.substr(5,2).c_str())) && it->first.compare(0, 4, date, 0, 4) == 0) {
-			it++;
-		}
+	while ((atoi(it->first.substr(5,2).c_str()) < atoi(date.substr(5,2).c_str())) && it->first.compare(0, 4, date, 0, 4) == 0) {
+		it++;
 	}
 
-	if (test == true) {
-		while ((atoi(it->first.substr(8,2).c_str()) < atoi(date.substr(8,2).c_str())) && it->first.compare(5, 2, date, 5, 2) == 0)
-			it++;
-		it--;
-		return (it->second);
-	}
+	while ((atoi(it->first.substr(8,2).c_str()) < atoi(date.substr(8,2).c_str())) && it->first.compare(5, 2, date, 5, 2) == 0)
+		it++;
+	it--;
+	return (it->second);
 	return (0);
 }
 
