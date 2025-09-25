@@ -81,15 +81,11 @@ double findDate(std::map<std::string, double> DB, std::string date) {
 	}
 
 	if (test == true) {
-		test = false;
-		while (it != DB.end()) {
-			if (it->first.compare(5, 2, date, 5, 2) == 0) {
-				test = true;
-				break;
-			}
+		while ((atoi(it->first.substr(5,2).c_str()) < atoi(date.substr(5,2).c_str())) && it->first.compare(0, 4, date, 0, 4) == 0) {
 			it++;
 		}
 	}
+
 	if (test == true) {
 		while ((atoi(it->first.substr(8,2).c_str()) < atoi(date.substr(8,2).c_str())) && it->first.compare(5, 2, date, 5, 2) == 0)
 			it++;
